@@ -28,3 +28,11 @@ Es un archivo que nos permite configurar la compilacion de nuestro codigo de Typ
 ## Tipado en Typescript
 
 Typescript indica explicitamente la tipologia de las variables, a diferencia de JavaScript, donde esta tipologia es inferida.
+
+## Interfaces
+
+Permiten definir estructuras de datos que representen una entidad con propiedades. La instancia de una interfaz debe tener todas las propiedades que fueron definidas en un principio. Sin embargo, podemos omitir esto añadiendo un "**?**" al nombre de la propiedad que queramos omitir.
+
+Adicionalmente, existen valores de propiedades que nunca cambiaran de valor, como las *readonly*.
+
+Finalmente, definimos que una clase puede **implementar** a una interface. Esta clase debe implementar las mismas propiedades y tambien puede implementar unas propias.
