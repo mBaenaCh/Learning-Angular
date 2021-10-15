@@ -36,3 +36,11 @@ Permiten definir estructuras de datos que representen una entidad con propiedade
 Adicionalmente, existen valores de propiedades que nunca cambiaran de valor, como las *readonly*.
 
 Finalmente, definimos que una clase puede **implementar** a una interface. Esta clase debe implementar las mismas propiedades y tambien puede implementar unas propias.
+
+## Funciones
+
+Deben recibir parametros tipados y asi mismo deben establecer el valor de retorno (void u otro tipo) de la misma. 
+
+Como parametros puden recibir de forma opcional algunos de estos, nuevamente usando "**?**" o recibir valores por defecto, simplemente igualando el parametro (y su tipo) al valor deseado.
+
+Tambien, existen los parametros rest (...) que reciben una lista de valores.
