@@ -24,3 +24,7 @@ Es un archivo que nos permite configurar la compilacion de nuestro codigo de Typ
     - target: Que nos indica bajo que estandar queremos compilar (Por ejemplo ES6).
     - outDir: Para indicar el directorio donde quedaran guardados los archivos .js generados.
     - noEmitOnError: Para evitar generar archivos .js cuando hay errores en la compilacion.
+
+## Tipado en Typescript
+
+Typescript indica explicitamente la tipologia de las variables, a diferencia de JavaScript, donde esta tipologia es inferida.
