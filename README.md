@@ -9,3 +9,9 @@ El codigo que es escrito en Typescript debe ser transformado a ES6 en tiempo de 
 ## Instalacion de typescript
 
 Usando el comando: `npm install -g typescript`
+
+## Compilacion de archivos .ts
+
+Nos permitira compilar un archivo de Typescript, nos mostrara errores dentro de la sintaxis y ademas generara un archivo JavaScript que podremos ejecutar.
+
+Usamos el comando: `tsc archivo.ts`
