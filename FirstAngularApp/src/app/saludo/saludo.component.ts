@@ -18,4 +18,7 @@ export class SaludoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  printSomething(): string {
+    return "This come from a method in my .ts file";
+  }
 }

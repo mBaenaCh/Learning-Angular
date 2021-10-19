@@ -51,3 +51,7 @@ Dado que nuestros componentes, en su parte logica, tienen asociada una clase de 
 El constructor de nuestra clase lo podemos usar para inicializar estas propiedades/variables.
 
 Finalmente, podemos usar estas variables en nuestro .html del componente con el uso de handlebars: `{{variable}}`
+
+### Handlebars
+
+Estan dados por `{{ }}`  y estos pueden contender informacion dinamica de Typescript como variables. Estos bloquean el uso de algunas funciones nativas de Typescript, sin embargo, podemos usar metodos que hallamos definido en el archivo .ts de nuestro componente.
