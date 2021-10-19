@@ -1,8 +1,8 @@
 # Angular Project
 
-- Contiene un modulo principal que carga todos los componentes, pipes, etc. de nuestra aplicacion.
+- Contiene un modulo principal (`app.module.ts`) que carga todos los componentes, pipes, modulos externos, etc. que usara nuestra aplicacion.
 
-- Contiene la plantilla principal de html donde se dispondran los selectores de los componentes que creemos en nuestra aplicacion.
+- Contiene la plantilla principal (`app.component.html`) donde se dispondran los selectores de los componentes que creemos en nuestra aplicacion.
 
 ## Creacion de componentes
 
@@ -14,4 +14,32 @@ Un componente tiene:
 
 - Un archivo .html que contiene el diseño del componente. Este puede contener selectores otros componentes.
 
-- Un archiv .css que define el estilo del componente.
+- Un archivo .css que define el estilo del componente.
+
+- Puede tener mas de un estilo (Por eso *styleUrls* es un array).
+
+## Jerarquia de componentes
+Un componente puede llamar a otros componentes dentro de si
+
+Dentro de un proyecto de angular encontraremos algo similar a esto, en cuanto a jerarquia de componentes:
+
+```
+<html>
+<head>
+  <!-- Contenido del Head -->
+</head>
+<body>
+  <!-- app-component.html -->
+  <app-root>
+    <!-- Componentes padre de mi app -->
+    <app-padre>
+        <!-- Etiquetas html -->
+        <!-- Componente hijos de mis componentes>
+        <app-hijo>
+            <!-- Etiquetas html -->
+        </app-hijo>
+    </app-padre>
+  </app-root>
+</body>
+</html>
+```
