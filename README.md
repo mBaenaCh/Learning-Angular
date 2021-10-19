@@ -1,46 +1,36 @@
-# Learning angular: Typescript
+# Learning Angular:
 
-Typescript es un conjunto de herramientas superiores a Javascript.
+- Framework importante para el desarrollo de aplicaciones de tipo **SPA** (Single Page Only).
 
-Añade funcionalidades de tipados, decoradores y demas herramientas que necesita un proyecto de angular para funcionar.
+- Permite desarrollar aplicaciones **PWA**(Aplicaciones Web Progresivas), aplicaciones hibridas e incluso desarrollo nativo y de escritorio.
 
-El codigo que es escrito en Typescript debe ser transformado a ES6 en tiempo de compilacion para que pueda ser usado en el navegador.
+- Puede ser la base para aplicaciones cross-platform, por lo que estas pueden funcionar en diferentes dispositivos.
 
-## Instalacion de typescript
+- Se basa en el patron de desarorollo MVC.
 
-Usando el comando: `npm install -g typescript`
+- Cuenta con un CLI para facilitar el trabajo e interaccion con nuestro proyecto de Angular.
 
-## Compilacion de archivos .ts
+## Algunos comandos del CLI de Angular:
 
-Nos permitira compilar un archivo de Typescript, nos mostrara errores dentro de la sintaxis y ademas generara un archivo JavaScript que podremos ejecutar.
+- Para instalar el CLI de angular usamos el comando:
 
-Usamos el comando: `tsc archivo.ts`
+```
+$ npm install -g @angular/cli
+```
 
-## Archivo tsconfig.json
+Y podemos verificar su instalacion con `$ ng --version`
 
-Es un archivo que nos permite configurar la compilacion de nuestro codigo de Typescript, algunas opciones son:
+- Para crear un proyecto: 
 
-- compilerOptions
-    - target: Que nos indica bajo que estandar queremos compilar (Por ejemplo ES6).
-    - outDir: Para indicar el directorio donde quedaran guardados los archivos .js generados.
-    - noEmitOnError: Para evitar generar archivos .js cuando hay errores en la compilacion.
+```
+$ ng new NombreProyecto
+```
 
-## Tipado en Typescript
+- Para correr el proyecto usamos el siguiente:
 
-Typescript indica explicitamente la tipologia de las variables, a diferencia de JavaScript, donde esta tipologia es inferida.
+```
+ng serve
+```
 
-## Interfaces
+Este pondra a correr nuestro proyecto, en una etapa de desarrollo, en la direccion: *http://localhost:4200*
 
-Permiten definir estructuras de datos que representen una entidad con propiedades. La instancia de una interfaz debe tener todas las propiedades que fueron definidas en un principio. Sin embargo, podemos omitir esto añadiendo un "**?**" al nombre de la propiedad que queramos omitir.
-
-Adicionalmente, existen valores de propiedades que nunca cambiaran de valor, como las *readonly*.
-
-Finalmente, definimos que una clase puede **implementar** a una interface. Esta clase debe implementar las mismas propiedades y tambien puede implementar unas propias.
-
-## Funciones
-
-Deben recibir parametros tipados y asi mismo deben establecer el valor de retorno (void u otro tipo) de la misma. 
-
-Como parametros puden recibir de forma opcional algunos de estos, nuevamente usando "**?**" o recibir valores por defecto, simplemente igualando el parametro (y su tipo) al valor deseado.
-
-Tambien, existen los parametros rest (...) que reciben una lista de valores.
