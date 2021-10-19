@@ -43,3 +43,11 @@ Dentro de un proyecto de angular encontraremos algo similar a esto, en cuanto a 
 </body>
 </html>
 ```
+
+## Propiedades en nuestros componentes
+
+Dado que nuestros componentes, en su parte logica, tienen asociada una clase de Typescript, entonces podemos asociar propiedades a estas.
+
+El constructor de nuestra clase lo podemos usar para inicializar estas propiedades/variables.
+
+Finalmente, podemos usar estas variables en nuestro .html del componente con el uso de handlebars: `{{variable}}`
