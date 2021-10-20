@@ -16,8 +16,8 @@ export class CronometroComponent implements OnInit {
   }
 
   conteo(): void {
-    var intervalId = setInterval(() => {
-      this.valorInicial = this.valorInicial - 1;
+    let intervalId = setInterval(() => {
+      this.valorInicial--;
       if (this.valorInicial === 0) {
         clearInterval(intervalId);
       }
