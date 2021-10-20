@@ -55,3 +55,22 @@ Finalmente, podemos usar estas variables en nuestro .html del componente con el 
 ### Handlebars
 
 Estan dados por `{{ }}`  y estos pueden contender informacion dinamica de Typescript como variables. Estos bloquean el uso de algunas funciones nativas de Typescript, sin embargo, podemos usar metodos que hallamos definido en el archivo .ts de nuestro componente.
+
+### Property binding
+
+Nos permite asociar valores de variables en las propiedades de nuestro html, como por ejemplo
+
+La enunciacion de una variable
+
+```
+idParagraph: string;
+```
+
+Y su binding en la propiedad de un elemento html:
+
+```
+<p id="{{idParagraph}}">Some text</p>
+```
+Notese que usamos handlebars. Tambien, podremos añadir prefijos o sufijos al valor de la variable en la propiedad.
+
+Otra forma de realizar este property binding es con el uso de la siguiente expresion: `<p [id]="idParagraph">Some text</p>`, donde indicamos que la propiedad `[id]` tendra como valor una variable dinamica de Typescript (Que en el navegador sera Javascript).

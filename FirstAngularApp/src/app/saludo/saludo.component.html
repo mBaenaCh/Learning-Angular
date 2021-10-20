@@ -1,3 +1,5 @@
-<h1>{{message}}</h1>
+<h1>{{titulo}}</h1>
 <h2>Subtitulo</h2>
-<p>Where does this come from?: {{ printSomething() }}</p>
+<p>Where does this come from?: <b>{{ printSomething() }}</b></p>
+<p id="prefijo-{{idParrafo}}-sufijo">Some text with a propert binding</p>
+<p [id]="idParrafo">Some text with a property binding</p>

@@ -6,12 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saludo.component.css']
 })
 export class SaludoComponent implements OnInit {
-  message: string;
+  titulo: string;
+  idParrafo: number;
   constructor() { 
-    this.message = "Greetings to you all!";
+    this.titulo = "Greetings to you all!";
+    this.idParrafo = 1;
+
     /* Timeout para evidenciar que pasados 3 segundos el mensaje del componente cambie */
     setTimeout(() => {
-      this.message = "Another different message";
+      this.titulo = "Another different message";
     }, 3000);
   }
 
@@ -20,5 +23,5 @@ export class SaludoComponent implements OnInit {
 
   printSomething(): string {
     return "This come from a method in my .ts file";
-  }
+  } 
 }
