@@ -25,8 +25,4 @@ export class CronometroComponent implements OnInit {
 
   }
 
-  restar(): void {
-    this.valorInicial = this.valorInicial - 1;
-  }
-
 }
