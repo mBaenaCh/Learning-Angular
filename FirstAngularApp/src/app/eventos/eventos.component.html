@@ -4,3 +4,12 @@
     <option value="dos">Dos</option>
     <option value="tres">Tres</option>
 </select>
+<div class="cuadrado" (mouseenter)="onMouseEnters()" (mouseout)="onMouseOut()">
+    {{ mensaje }}
+</div>
+<!-- Para visualizar el valor de un input -->
+<input type="text" name="NO asociado a Div" (change)="onChangeInput($event)">
+<!-- Para visualizar el evento input -->
+<input type="text" name="Asociado a Div" (input)="onInput($event)">
+<!-- Blur and Focus -->
+<input type="text" name="blur and focus" (focus)="onFocus()" (blur)="onBlur()">
