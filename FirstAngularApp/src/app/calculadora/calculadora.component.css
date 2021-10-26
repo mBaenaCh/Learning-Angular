@@ -1,0 +1,31 @@
+.calculator{
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    padding: 10px;
+}
+
+.p{
+    margin: 0;
+}
+
+.numbers{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.all-over{
+    min-width: 100%;
+}
+
+.button{
+    background-color: cornsilk;
+    flex-grow: 1;
+    min-width: calc(100%/9);
+}
+

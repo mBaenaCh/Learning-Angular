@@ -1,0 +1,24 @@
+<div class="calculator">
+    <div class="all-over">
+        <p>{{toCalculate}}</p>
+    </div>
+    <div class="numbers">
+        <button value="1" (click)="onClick($event)">1</button><button value="2"
+            (click)="onClick($event)">2</button><button value="3" (click)="onClick($event)">3</button>
+        <button value="4" (click)="onClick($event)">4</button><button value="5"
+            (click)="onClick($event)">5</button><button value="6" (click)="onClick($event)">6</button>
+        <button value="7" (click)="onClick($event)">7</button><button value="8"
+            (click)="onClick($event)">8</button><button value="9" (click)="onClick($event)">9</button>
+    </div>
+    <div class="all-over">
+        <button value="0" (click)="onClick($event)">0</button>
+    </div>
+    <div class="operators">
+        <button value="+" (click)="onClick($event)">+</button><button value="-"
+            (click)="onClick($event)">-</button><button value="*" (click)="onClick($event)">*</button><button value="/"
+            (click)="onClick($event)">/</button>
+    </div>
+    <div class="all-over">
+        <button (click)="onSolve()">=</button>
+    </div>
+</div>

@@ -81,7 +81,9 @@ Ademas de poder asociar variables dinamicas a nuestras vistas, tambien podemos a
 
 Los eventos los podemos llamar con `( nombre evento )`, por ejemplo: `(click) = "onClick()"`. Donde `onClick()` hace referencia a un metodo que hemos definido en la clase Typescript de nuestro componente.
 
-- **$event:** Los metodos definidos para nuestros eventos tambien pueden recibir parametros. Por ejemplo, podemos usar `$event` para retornar informacion de un evento. Entonces `(click) = onClick($event)` nos retornaria informacion del evento Click. 
+Los metodos definidos para nuestros eventos tambien pueden recibir parametros. Por ejemplo, podemos usar `$event` para retornar informacion de un evento. Entonces `(click) = onClick($event)` nos retornaria informacion del evento Click. 
+
+Existen otros eventos como:
 
 - **input:** Nos permite obtener propiedades de un input por medio de un evento sobre este.
 
