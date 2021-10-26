@@ -14,7 +14,12 @@ export class EventosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(): void{
+  onClick($event): void{
     alert('Button pressed');
+    console.log($event)
+  }
+
+  onChange($event): void{
+    console.log($event.target.value)
   }
 }
