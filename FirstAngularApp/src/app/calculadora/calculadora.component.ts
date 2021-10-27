@@ -10,22 +10,24 @@ export class CalculadoraComponent implements OnInit {
   isCalculated: boolean;
   constructor() { 
     this.toCalculate = ' ';
+    this.isCalculated = false;
   }
 
   ngOnInit(): void {
   }
 
   onClick($event): void {
-    if(this.isCalculated === true){
-      this.toCalculate = '';
-    } else {
-      this.toCalculate += $event.target.value;
-      console.log($event.target.value);
-    }
+      if(this.isCalculated){
+        this.toCalculate = $event.target.innerText;
+        this.isCalculated = false;
+      } else {
+        this.toCalculate += $event.target.innerText;
+      }
   }
 
-  onSolve(): void {
+  onResult(): void{
     this.toCalculate = eval(this.toCalculate);
     this.isCalculated = true;
   }
+
 }
