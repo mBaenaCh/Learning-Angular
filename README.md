@@ -89,4 +89,27 @@ Existen otros eventos como:
 
 - **blur y focus:** Identifica el evento de cuando hay enfasis o no sobre un input. Por ejemplo, cuando le damos click a un input para ingresar texto.
 
+## Decorators
 
+- **@input:** Permite manipular las variables de una variable de un componente hijo desde su padre.
+
+Primero, debemos importarlo en el modulo del componente. Este viene includo en la libreria `@angular/core`.
+
+```
+Import {Input} from '@angular/core';
+```
+
+Luego, debemos añadir el decorador en la variable que deseamos:
+
+```
+@Input() variable: type;
+```
+Como parametro, Input puede recibir el nombre que le daremos a la varaible cuando esta sea usada en el componente padre.
+
+Ahora, desde el componente padre, podremos asignarle valor a esta variable:
+
+```
+<app-padre>
+  <app-hijo variable="something"></app-hijo>
+</app-padre>
+```

@@ -9,6 +9,7 @@ import { EventosComponent } from './eventos/eventos.component';
 import { SumarComponent } from './sumar/sumar.component';
 import { CronometroComponent } from './cronometro/cronometro.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { AlertaComponent } from './alerta/alerta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
     EventosComponent,
     SumarComponent,
     CronometroComponent,
-    CalculadoraComponent
+    CalculadoraComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule
