@@ -6,10 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./alerta.component.css']
 })
 export class AlertaComponent implements OnInit {
-  @Input() message: string;
+  @Input('title') message: string;
+  @Input() subMessage: string;
 
   constructor() { 
     this.message = 'Message by default';
+    this.subMessage = 'Submessage by default'
   }
 
   ngOnInit(): void {

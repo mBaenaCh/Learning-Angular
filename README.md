@@ -113,3 +113,11 @@ Ahora, desde el componente padre, podremos asignarle valor a esta variable:
   <app-hijo variable="something"></app-hijo>
 </app-padre>
 ```
+
+Desde el padre podremos modificar tantas propiedas como tenga el componente hijo.
+
+Tambien, podremos usar el **property binding** en caso de que definamos una propiedad en el componente padre y queramos asignarles ese valor a las propiedades de los hijos:
+
+```
+<app-hijo [prop_hijo]="valor_propiedad_padre"></app-hijo>
+```
