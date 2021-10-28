@@ -2,11 +2,13 @@
 <app-eventos></app-eventos>
 <app-cronometro></app-cronometro>
 <app-calculadora></app-calculadora>-->
-<!-- Input decorator and property binding -->
+<!-- Input, output decorator and property binding 
 <app-alerta title="Modificado desde el padre 1" subMessage="Subtitulo desde el padre" (alertCreated)="alertReceived($event)"></app-alerta>
 <app-alerta title="Modificado desde el padre 1"></app-alerta>
 <app-alerta [title]="titles[0]" subMessage="Subtitulo desde el padre"></app-alerta>
+<p>{{receivedAlert}}</p>-->
 <!-- Property binding with the Input decorator
 <app-sumar [numeroA]="numbers[3]" [numeroB]="numbers[0]"></app-sumar>
 <app-sumar [numeroA]="numbers[6]" [numeroB]="numbers[9]"></app-sumar>-->
-<p>{{receivedAlert}}</p>
+<app-cronometro (stopCount)="stopCountReceived($event)"></app-cronometro>
+<app-cronometro></app-cronometro>

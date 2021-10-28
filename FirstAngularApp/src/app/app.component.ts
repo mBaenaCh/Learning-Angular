@@ -10,6 +10,7 @@ export class AppComponent {
   titles: string[];
   numbers: number[];
   receivedAlert: string;
+  
   constructor(){
     this.receivedAlert = '';
     this.titles = ['Angular', 'Vue', 'React'];
@@ -20,4 +21,7 @@ export class AppComponent {
     this.receivedAlert = $event;
   }
 
+  stopCountReceived($event): void{
+    console.log($event);
+  }
 }

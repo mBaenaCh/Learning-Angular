@@ -1,0 +1,17 @@
+.timer{
+    border: 1px solid black;
+    width: 80px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightgray;
+}
+
+p{
+    background-color: white;
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}

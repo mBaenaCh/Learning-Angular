@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cronometro',
@@ -6,23 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cronometro.component.css']
 })
 export class CronometroComponent implements OnInit {
-  valorInicial: number;
+  initialValue: number;
+  @Output() stopCount: EventEmitter<string>;
+  pressed: boolean;
 
   constructor() {
-    this.valorInicial = 10;
+    this.initialValue = 10;
+    this.stopCount = new EventEmitter;
+    this.pressed = false;
   }
 
   ngOnInit(): void {
   }
 
   conteo(): void {
+    this.pressed = true;
     let intervalId = setInterval(() => {
-      this.valorInicial--;
-      if (this.valorInicial === 0) {
+      this.initialValue--;
+      if (this.initialValue === 0 || this.pressed === false) {
         clearInterval(intervalId);
       }
     }, 1000);
 
+  }
+
+  emitStopTimer(){
+    this.pressed = false;
+    this.stopCount.emit('Stoped at: '+this.initialValue.toString());
   }
 
 }
