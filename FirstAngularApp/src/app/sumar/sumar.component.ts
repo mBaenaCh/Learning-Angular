@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sumar',
@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SumarComponent implements OnInit {
   
-  numeroA: number;
-  numeroB: number;
+  @Input() numeroA: number;
+  @Input() numeroB: number;
   resultado: number;
   constructor() { 
-    this.numeroA = 78;
-    this.numeroB = 3;
+    this.numeroA = 0;
+    this.numeroB = 0;
     this.resultado = 0;
   }
 

@@ -1,0 +1,21 @@
+.add-component{
+    margin-bottom: 50px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 90px;
+    background-color: lightgray;
+    justify-content: center;
+    text-align: center;
+}
+.operation{
+    width: 100%;
+   background-color: white;
+}
+.button{
+    align-self: center;
+    width: 100%;
+}
+
+p{
+    background-color: white;
+}

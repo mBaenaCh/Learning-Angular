@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'FirstAngularApp';
   titles: string[];
+  numbers: number[];
 
   constructor(){
     this.titles = ['Angular', 'Vue', 'React'];
+    this.numbers = Array.from({length: 10}, () => Math.floor(Math.random()*10));
   }
 }
