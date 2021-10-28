@@ -9,7 +9,23 @@
 <p>{{receivedAlert}}</p>-->
 <!-- Property binding with the Input decorator
 <app-sumar [numeroA]="numbers[3]" [numeroB]="numbers[0]"></app-sumar>
-<app-sumar [numeroA]="numbers[6]" [numeroB]="numbers[9]"></app-sumar>-->
+<app-sumar [numeroA]="numbers[6]" [numeroB]="numbers[9]"></app-sumar>
 <app-cronometro [initialValue]="numbers[2]" (stopCount)="stopCountReceived($event)"></app-cronometro>
 <app-cronometro [initialValue]="numbers[4]" (stopCount)="stopCountReceived($event)"></app-cronometro>
-<app-cronometro [initialValue]="numbers[7]" (stopCount)="stopCountReceived($event)"></app-cronometro>
+<app-cronometro [initialValue]="numbers[7]" (stopCount)="stopCountReceived($event)"></app-cronometro>-->
+<!-- two way binding
+<input type="text" [(ngModel)]="textField">
+<p>{{textField}}</p>
+<button (click) = "onClick()"> Change text value</button>
+-->
+<!-- two way binding with more complex objects-->
+<div>
+    <input type="text" [(ngModel)]="someObject.name">
+    <input type="text" [(ngModel)]="someObject.lastName">
+    <input type="text" [(ngModel)]="someObject.email">
+</div>
+
+<p>My name is: {{someObject.name}} {{someObject.lastName}} and my email is {{someObject.email}}</p>
+
+
+

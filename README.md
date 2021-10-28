@@ -160,3 +160,36 @@ En el componente padre, recibiremos este evento por medio de esta variable y aso
 ```
 
 El valor de la variable, la podemos obtener por medio de `$event`.
+
+## Two way binding
+
+Permite enlazar el valor producido en un elemento de un componente con una variable definida dentro del mismo, variable que podra ser usada por otro elemento de ese componente, lo cual define ese doble enlace.
+
+Primero, deberemos cargar el modulo `FormsModule` a nuestra aplicacion (Osea, añadirla al `app.module.ts`).
+
+```typescript
+import {FormsModule} from '@angular/forms';
+```
+
+Y luego añadir este modulo a los imports:
+
+```typescript
+imports: [
+  FormsModule
+]
+```
+
+El enlace doble lo evidenciaremos si añadimos un `ngModule`, asociado a una variable del componente, a un elemento y si llamamos esta variable en otro elemento.
+
+```html
+<input [(ngModule)]="variable">
+<p>{{variable}}</p>
+```
+
+Otra funcionalidad del two way binding, es el uso de formularios que permiten asignar propiedades a un objeto definido en un componente.
+
+```html
+<input [(ngModule)]="object.property1">
+<input [(ngModule)]="object.property2">
+<input [(ngModule)]="object.property3">
+```
