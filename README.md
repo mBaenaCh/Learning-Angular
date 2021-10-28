@@ -95,20 +95,21 @@ Existen otros eventos como:
 
 Primero, debemos importarlo en el modulo del componente. Este viene includo en la libreria `@angular/core`.
 
-```
+```typescript
 Import {Input} from '@angular/core';
 ```
 
 Luego, debemos añadir el decorador en la variable que deseamos:
 
-```
+```typescript
 @Input() variable: type;
 ```
+
 Como parametro, Input puede recibir el nombre que le daremos a la varaible cuando esta sea usada en el componente padre.
 
 Ahora, desde el componente padre, podremos asignarle valor a esta variable:
 
-```
+```html
 <app-padre>
   <app-hijo variable="something"></app-hijo>
 </app-padre>
@@ -118,6 +119,42 @@ Desde el padre podremos modificar tantas propiedas como tenga el componente hijo
 
 Tambien, podremos usar el **property binding** en caso de que definamos una propiedad en el componente padre y queramos asignarles ese valor a las propiedades de los hijos:
 
-```
+```html
 <app-hijo [prop_hijo]="valor_propiedad_padre"></app-hijo>
 ```
+
+- **output:** Son un decorador que permite emitir eventos. Estos eventos, son asociados a una variable, cuyo valor puede ser llevado de un componente a otro.
+
+Al igual que el decorador `input`, debemos importarlo por medio de `@angular/core`.
+
+```typescript
+import {Output, EventEmitter} from '@angular/core';
+```
+
+Luego, añadimos el decorador y asociamos esta a un objeto de tipo `EventEmitter` con el tipo de variable que queremos:
+
+```typescript
+@Output() variable: EventEmitter<tipo variable>;
+```
+
+Dado que nuestra variable es un objeto, lo podemos inicializar de la siguiente manera:
+
+```typescript
+constructor(){
+  this.variable = new EventEmitter();
+}
+```
+
+Posteriormente, podremos asociar esta variable a algun evento en el componente hijo, evento que emitiremos al componente padre:
+
+```typescript
+this.variable.emit(tipo variable);
+```
+
+En el componente padre, recibiremos este evento por medio de esta variable y asociaremos un evento a este para poder usar su valor.
+
+```html
+<app-hijo (variable) ="eventoPadre($event)">
+```
+
+El valor de la variable, la podemos obtener por medio de `$event`.
