@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cronometro',
@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cronometro.component.css']
 })
 export class CronometroComponent implements OnInit {
-  initialValue: number;
+  @Input() initialValue: number;
   @Output() stopCount: EventEmitter<string>;
   pressed: boolean;
 

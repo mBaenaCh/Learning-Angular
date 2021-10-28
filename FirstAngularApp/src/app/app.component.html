@@ -10,5 +10,6 @@
 <!-- Property binding with the Input decorator
 <app-sumar [numeroA]="numbers[3]" [numeroB]="numbers[0]"></app-sumar>
 <app-sumar [numeroA]="numbers[6]" [numeroB]="numbers[9]"></app-sumar>-->
-<app-cronometro (stopCount)="stopCountReceived($event)"></app-cronometro>
-<app-cronometro></app-cronometro>
+<app-cronometro [initialValue]="numbers[2]" (stopCount)="stopCountReceived($event)"></app-cronometro>
+<app-cronometro [initialValue]="numbers[4]" (stopCount)="stopCountReceived($event)"></app-cronometro>
+<app-cronometro [initialValue]="numbers[7]" (stopCount)="stopCountReceived($event)"></app-cronometro>

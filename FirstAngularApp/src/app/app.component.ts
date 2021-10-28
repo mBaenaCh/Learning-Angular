@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FirstAngularApp';
+  title = 'Angular playground';
   titles: string[];
   numbers: number[];
   receivedAlert: string;
