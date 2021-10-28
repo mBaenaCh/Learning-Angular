@@ -69,7 +69,7 @@ idParagraph: string;
 
 Y su binding en la propiedad de un elemento html:
 
-```typescript
+```html
 <p id="{{idParagraph}}">Some text</p>
 ```
 
