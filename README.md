@@ -19,11 +19,12 @@ Un componente tiene:
 - Puede tener mas de un estilo (Por eso *styleUrls* es un array).
 
 ## Jerarquia de componentes
+
 Un componente puede llamar a otros componentes dentro de si
 
 Dentro de un proyecto de angular encontraremos algo similar a esto, en cuanto a jerarquia de componentes:
 
-```
+```html
 <html>
 <head>
   <!-- Contenido del Head -->
@@ -34,7 +35,7 @@ Dentro de un proyecto de angular encontraremos algo similar a esto, en cuanto a 
     <!-- Componentes padre de mi app -->
     <app-padre>
         <!-- Etiquetas html -->
-        <!-- Componente hijos de mis componentes>
+        <!-- Componente hijos de mis componentes>-->
         <app-hijo>
             <!-- Etiquetas html -->
         </app-hijo>
@@ -62,15 +63,16 @@ Nos permite asociar valores de variables en las propiedades de nuestro html, com
 
 La enunciacion de una variable
 
-```
+```typescript
 idParagraph: string;
 ```
 
 Y su binding en la propiedad de un elemento html:
 
-```
+```typescript
 <p id="{{idParagraph}}">Some text</p>
 ```
+
 Notese que usamos handlebars. Tambien, podremos añadir prefijos o sufijos al valor de la variable en la propiedad.
 
 Otra forma de realizar este property binding es con el uso de la siguiente expresion: `<p [id]="idParagraph">Some text</p>`, donde indicamos que la propiedad `[id]` tendra como valor una variable dinamica de Typescript (Que en el navegador sera Javascript).
@@ -81,7 +83,7 @@ Ademas de poder asociar variables dinamicas a nuestras vistas, tambien podemos a
 
 Los eventos los podemos llamar con `( nombre evento )`, por ejemplo: `(click) = "onClick()"`. Donde `onClick()` hace referencia a un metodo que hemos definido en la clase Typescript de nuestro componente.
 
-Los metodos definidos para nuestros eventos tambien pueden recibir parametros. Por ejemplo, podemos usar `$event` para retornar informacion de un evento. Entonces `(click) = onClick($event)` nos retornaria informacion del evento Click. 
+Los metodos definidos para nuestros eventos tambien pueden recibir parametros. Por ejemplo, podemos usar `$event` para retornar informacion de un evento. Entonces `(click) = onClick($event)` nos retornaria informacion del evento Click.
 
 Existen otros eventos como:
 
