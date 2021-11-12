@@ -18,14 +18,15 @@
 <p>{{textField}}</p>
 <button (click) = "onClick()"> Change text value</button>
 -->
-<!-- two way binding with more complex objects-->
+<!-- two way binding with more complex objects
 <div>
     <input type="text" [(ngModel)]="someObject.name">
     <input type="text" [(ngModel)]="someObject.lastName">
     <input type="text" [(ngModel)]="someObject.email">
 </div>
 
-<p>My name is: {{someObject.name}} {{someObject.lastName}} and my email is {{someObject.email}}</p>
-
-
-
+<p>My name is: {{someObject.name}} {{someObject.lastName}} and my email is {{someObject.email}}</p>-->
+<div class="tareas">
+    <app-formulario (tareaCreada)="tareaRecibida($event)"></app-formulario>
+    <app-lista [tareas]="arrTareas"></app-lista>
+</div>

@@ -23,4 +23,6 @@ export class AlertaComponent implements OnInit {
     this.alertCreated.emit('Click realizado');
   }
 
+  
+
 }

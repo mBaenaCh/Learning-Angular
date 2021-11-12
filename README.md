@@ -179,17 +179,17 @@ imports: [
 ]
 ```
 
-El enlace doble lo evidenciaremos si añadimos un `ngModule`, asociado a una variable del componente, a un elemento y si llamamos esta variable en otro elemento.
+El enlace doble lo evidenciaremos si añadimos un `ngModel`, asociado a una variable del componente, a un elemento y si llamamos esta variable en otro elemento.
 
 ```html
-<input [(ngModule)]="variable">
+<input [(ngModel)]="variable">
 <p>{{variable}}</p>
 ```
 
 Otra funcionalidad del two way binding, es el uso de formularios que permiten asignar propiedades a un objeto definido en un componente.
 
 ```html
-<input [(ngModule)]="object.property1">
-<input [(ngModule)]="object.property2">
-<input [(ngModule)]="object.property3">
+<input [(ngModel)]="object.property1">
+<input [(ngModel)]="object.property2">
+<input [(ngModel)]="object.property3">
 ```

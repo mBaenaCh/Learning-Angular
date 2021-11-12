@@ -1,0 +1,14 @@
+.formulario{
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    background-color: cadetblue;
+    margin-right: 10px;
+}
+
+button{
+    margin-top: 5px;
+}
+

@@ -1,0 +1,8 @@
+.tareas{
+    border: 1px solid black;
+    width: 480px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

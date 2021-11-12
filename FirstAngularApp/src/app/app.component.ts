@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Tarea} from '../app/models/tarea.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +12,7 @@ export class AppComponent {
   receivedAlert: string;
   textField: string;
   someObject: any;
+  arrTareas: Tarea[];
 
   constructor(){
     this.receivedAlert = '';
@@ -19,6 +20,7 @@ export class AppComponent {
     this.numbers = Array.from({length: 10}, () => Math.floor(Math.random()*10));
     this.textField = 'Initial value';
     this.someObject = {};
+    this.arrTareas = [];
   }
 
   alertReceived($event): void{
@@ -29,7 +31,7 @@ export class AppComponent {
     console.log($event);
   }
 
-  onClick(): void{
-    this.textField = 'Changed after the click'
+  tareaRecibida($event): void {
+    this.arrTareas.push($event);
   }
 }
