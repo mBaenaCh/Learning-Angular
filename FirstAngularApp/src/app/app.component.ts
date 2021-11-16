@@ -13,6 +13,7 @@ export class AppComponent {
   textField: string;
   someObject: any;
   arrTareas: Tarea[];
+  varTexto: string;
 
   constructor(){
     this.receivedAlert = '';
@@ -21,6 +22,7 @@ export class AppComponent {
     this.textField = 'Initial value';
     this.someObject = {};
     this.arrTareas = [];
+    this.varTexto = 'Texto definido en el componente padre';
   }
 
   alertReceived($event): void{
@@ -33,5 +35,13 @@ export class AppComponent {
 
   tareaRecibida($event): void {
     this.arrTareas.push($event);
+  }
+
+  ngOnInit(){
+    /*let cont=0;
+    setInterval( () => {
+      this.varTexto = `Cambio desde el padre ${cont++}`;
+    }, 2000);*/
+    this.varTexto = 'Cambio desde el ngOnInit del padre';
   }
 }

@@ -95,6 +95,8 @@ Existen otros eventos como:
 
 - **@input:** Permite manipular las variables de una variable de un componente hijo desde su padre.
 
+Los Inputs no necesitan ser inicializados desde el componente donde se definen.
+
 Primero, debemos importarlo en el modulo del componente. Este viene includo en la libreria `@angular/core`.
 
 ```typescript
@@ -193,3 +195,33 @@ Otra funcionalidad del two way binding, es el uso de formularios que permiten as
 <input [(ngModel)]="object.property2">
 <input [(ngModel)]="object.property3">
 ```
+
+## Ciclo de vida de componentes
+
+Esta marcado por la ejecucion de distintos metodos encontrados en la logica de cada componente:
+
+### constructor()
+
+Nos permite inicializar propiedades definidas en un componente.
+
+Asigna a un **Input** el valor con el fue inicializado en el componente hijo.
+
+### ngOnInit()
+
+Permite inicializar funciones necesarias en la primera ejecucion de nuestro componente.
+
+Asigna a un **Input** el valor que le fue asignado en el componente padre.
+
+### ngAfterViewInit()
+
+Permite realizar cambios en la vista de un componente, cuando este ha sido inicializado.
+
+### ngOnChange()
+
+Este metodo se ejecuta por debajo del metodo ngOnInit(), y lo hace cada vez que una propiedad, input u output cambia desde algun otro componente.
+
+Un parametro que recibe este metodo es `changes: SimpleChange`, el cual contiene los cambios de propiedades, inputs u outputs, entre otras caracteristicas que hallan cambiado en nuestro componente.
+
+### ngOnDestroy()
+
+Este metodo se ejecuta cuando un metodo deja de ser usado.
