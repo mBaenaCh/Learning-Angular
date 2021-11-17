@@ -15,6 +15,7 @@ import { ListaComponent } from './lista/lista.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { MainComponent } from './main/main.component';
 import { SemaforoComponent } from './semaforo/semaforo.component';
+import { BuclesComponent } from './bucles/bucles.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SemaforoComponent } from './semaforo/semaforo.component';
     ListaComponent,
     FormularioComponent,
     MainComponent,
-    SemaforoComponent
+    SemaforoComponent,
+    BuclesComponent
   ],
   imports: [
     BrowserModule,

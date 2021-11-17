@@ -46,9 +46,23 @@
 <div>
     <input type="range" min="10" max="50" step="2" (input)="onChange($event)">
 </div>-->
-<!-- Directivas estructurales (ngIf)-->
+<!-- Directivas estructurales (ngIf)
 <p *ngIf="mostrarParrafo">Contenido del primer paragraph</p>
 <p *ngIf="!mostrarParrafo">Contenido del segundo paragraph</p>
 <div>
     <button (click)="onClickMostrarParrafo()">Mostrar/Ocultar</button>
+</div>-->
+<!-- ngFor
+<app-bucles></app-bucles>-->
+<!-- ngSwitch
+<div [ngSwitch]="switchVar1">
+    <p *ngSwitchCase="'opt1'">Option 1</p>
+    <p *ngSwitchCase="'opt2'">Option 2</p>
+    <p *ngSwitchDefault>None of the others</p>
 </div>
+
+<div [ngSwitch]="switchVar2">
+    <p *ngSwitchCase="1">Option 1</p>
+    <p *ngSwitchCase="2">Option 2</p>
+    <p *ngSwitchDefault>None of the others</p>
+  </div>-->

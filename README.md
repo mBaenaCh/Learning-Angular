@@ -334,3 +334,55 @@ Sin embargo, podemos simplificar nuestro codigo simplemente negando la variable 
 <p *ngIf="showBlock">Text 1</p>
 <p *ngIf="!showBlock">Text 2</p>
 ```
+
+- **ngFor** Permite iterar sobre estructuras de datos como arreglos de objetos, para mostrarlos en nuestro formulario HTML
+
+```typescript
+objects: any[];
+```
+
+```html
+<ul>
+  <li *ngFor="object in objects">
+    {{object.property}}
+  </li>
+</ul>
+```
+
+Puedo generar bucles en varias estructuras como tablas u otros elementos HTML (**Revisar componente bucles**).
+
+- **ngSwitch** Permite generar una estructura condicional Switch con elementos HTML:
+
+```html
+<div [ngSwitch]="switchVar">
+  <p *ngSwitchCase="1">Option 1</p>
+  <p *ngSwitchCase="2">Option 2</p>
+  <p *ngSwitchDefault>None of the others</p>
+</div>
+```
+
+```typescript
+switchVar: number;
+
+constructor(){
+  this.switchVar = 1;
+}
+```
+
+Tambien podemos usar variables de tipo string:
+
+```html
+<div [ngSwitch]="switchVar">
+  <p *ngSwitchCase="'opt1'">Option 1</p>
+  <p *ngSwitchCase="'opt2'">Option 2</p>
+  <p *ngSwitchDefault>None of the others</p>
+</div>
+```
+
+```typescript
+switchVar: string;
+
+constructor(){
+  this.switchVar = 'opt1';
+}
+```

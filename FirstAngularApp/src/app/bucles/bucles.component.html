@@ -1,0 +1,25 @@
+<div class="cuentas">
+    <div class="cuenta" *ngFor="let cuenta of cuentas">
+        <h3>{{cuenta.usuario}}</h3>
+        <p>{{cuenta.nivel}}</p>
+        <p>{{cuenta.clase}}</p>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Nivel</th>
+            <th>Clase</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cuenta of cuentas">
+            <td>{{cuenta.usuario}}</td>
+            <td>{{cuenta.nivel}}</td>
+            <td>{{cuenta.clase}}</td>
+        </tr>
+    </tbody>
+</table>
+
