@@ -31,4 +31,16 @@
     <app-formulario (tareaCreada)="tareaRecibida($event)"></app-formulario>
     <app-lista [tareas]="arrTareas"></app-lista>
 </div>-->
-<app-main [texto]="varTexto"></app-main>
+<!-- Ciclos de vida de los componentes 
+<app-main [texto]="varTexto"></app-main>-->
+<p [ngStyle]="estiloParrafo"> Texto de prueba sujeto a cambios en su estilo</p>
+<div>
+    <button (click)="cambiaColor('rosa')">Rosa</button>
+    <button (click)="cambiaColor('amarillo')">Amarillo</button>
+</div>
+<div>
+    <input type="text" [(ngModel)]="estiloParrafo.color">
+</div>
+<div>
+    <input type="range" min="10" max="50" step="2" (input)="onChange($event)">
+</div>

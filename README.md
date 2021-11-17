@@ -225,3 +225,54 @@ Un parametro que recibe este metodo es `changes: SimpleChange`, el cual contiene
 ### ngOnDestroy()
 
 Este metodo se ejecuta cuando un metodo deja de ser usado.
+
+## Directivas
+
+Son cualquier componente, elemento o propiedades que hace parte de un elemento de HTML, sea de un componente o de un elemento de HTML.
+
+### Atributos
+
+Las cuales modifican propiedades de elementos HTML, como estilos o clases.
+
+- **ngStyle** Para modificar estilos a partir de variables que definamos en un componente.
+
+```html
+<p [ngStyle]="varStyle">
+```
+
+Y la variable siendo un objeto de tipo JSON con las siguientes propiedades:
+
+```javascript
+varStyle = {
+  color: 'red',
+  fontSize: '24px'
+}
+```
+
+Con un ngModel podriamos asociar la propiedad de este objeto a otro elemento HTML y asi cambiar su estilo de forma dinamica.
+
+```html
+<input type="text" [(ngModel)]="varStyle.color">
+```
+
+Otra forma de modificar la variable de estilo se puede lograr con el evento `(change)`:
+
+```html
+<input type="range" min="10" max="50" step="2" (change)="onChange($event)">
+```
+
+```typescript
+onChange($event){
+  this.varStyle.fontSize=`${$event.target.value}px`;
+}
+```
+
+El evento `(change)` nos cambia el estilo pero solo cuando se ha cambiado el valor de la etiqueta `range`. Si queremos que el estilo se modifique inmediatamente, podemos usar el evento `(input)`:
+
+```html
+<input type="range" min="10" max="50" step="2" (input)="onChange($event)">
+```
+
+### Estructurales
+
+Las cuales modifican estructuras de toda la pagina web, con el uso de estructuras condicionales o bucles.

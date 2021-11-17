@@ -14,6 +14,7 @@ export class AppComponent {
   someObject: any;
   arrTareas: Tarea[];
   varTexto: string;
+  estiloParrafo: any;
 
   constructor(){
     this.receivedAlert = '';
@@ -23,6 +24,10 @@ export class AppComponent {
     this.someObject = {};
     this.arrTareas = [];
     this.varTexto = 'Texto definido en el componente padre';
+    this.estiloParrafo = {
+      color: 'red',
+      fontSize: '24px'
+    };
   }
 
   alertReceived($event): void{
@@ -43,5 +48,17 @@ export class AppComponent {
       this.varTexto = `Cambio desde el padre ${cont++}`;
     }, 2000);*/
     this.varTexto = 'Cambio desde el ngOnInit del padre';
+  }
+
+  cambiaColor(pColor: string) {
+    if(pColor === 'rosa'){
+      this.estiloParrafo.color = 'pink';
+    } else if(pColor === 'amarillo') {
+      this.estiloParrafo.color = 'yellow';
+    }
+  }
+
+  onChange($event){
+    this.estiloParrafo.fontSize = `${$event.target.value}px`
   }
 }
