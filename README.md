@@ -273,6 +273,31 @@ El evento `(change)` nos cambia el estilo pero solo cuando se ha cambiado el val
 <input type="range" min="10" max="50" step="2" (input)="onChange($event)">
 ```
 
+- **ngClass** Es una directiva que permite asociar clases dinamicas a elementos html, se recomienda usar la estructura de datos array para esta asociacion dinamica.
+
+```html
+<div [ngClass]="classArray">
+```
+
+Array que podemos definir y modificar a nuestro gusto en el componente:
+
+```typescript
+classArray: string[];
+
+constructor(){
+  this.classArray = [''];
+  this.classArray.push('someClass');
+}
+```
+
+Otra forma de cambiar de forma dinamica las clases de estilos de un elemento HTML es con un objeto que valide la seleccion de esa clase:
+
+```html
+<div [ngClass]="{ estilo1: true, estilo2: false, estilo3: true }">
+```
+
+La validacion de la seleccion de una clase se da por el valor booleano que esta tenga en el objeto, en este caso se aplicarian las clases `estilo1` y `estilo3`. Esto deberia ser manejado con una propiedad del componente y no desde el HTML (**Mirar el componente semaforo**).
+
 ### Estructurales
 
 Las cuales modifican estructuras de toda la pagina web, con el uso de estructuras condicionales o bucles.

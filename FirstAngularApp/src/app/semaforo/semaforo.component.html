@@ -1,0 +1,11 @@
+<div 
+    [ngClass]="
+        { 
+            semaforo: true, 
+            redondo: true, 
+            rojo: (colorSeleccionado === 'r'), 
+            amarillo: (colorSeleccionado === 'a'), 
+            verde: (colorSeleccionado === 'v') 
+        }">
+</div>
+

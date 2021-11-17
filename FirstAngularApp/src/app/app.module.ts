@@ -14,6 +14,7 @@ import { AlertaComponent } from './alerta/alerta.component';
 import { ListaComponent } from './lista/lista.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { MainComponent } from './main/main.component';
+import { SemaforoComponent } from './semaforo/semaforo.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MainComponent } from './main/main.component';
     AlertaComponent,
     ListaComponent,
     FormularioComponent,
-    MainComponent
+    MainComponent,
+    SemaforoComponent
   ],
   imports: [
     BrowserModule,
