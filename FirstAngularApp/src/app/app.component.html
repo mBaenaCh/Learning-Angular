@@ -33,6 +33,7 @@
 </div>-->
 <!-- Ciclos de vida de los componentes 
 <app-main [texto]="varTexto"></app-main>-->
+<!-- Ejemplos directivas de atributos
 <app-semaforo></app-semaforo>
 <p [ngStyle]="estiloParrafo"> Texto de prueba sujeto a cambios en su estilo</p>
 <div>
@@ -44,4 +45,10 @@
 </div>
 <div>
     <input type="range" min="10" max="50" step="2" (input)="onChange($event)">
+</div>-->
+<!-- Directivas estructurales (ngIf)-->
+<p *ngIf="mostrarParrafo">Contenido del primer paragraph</p>
+<p *ngIf="!mostrarParrafo">Contenido del segundo paragraph</p>
+<div>
+    <button (click)="onClickMostrarParrafo()">Mostrar/Ocultar</button>
 </div>

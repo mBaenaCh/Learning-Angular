@@ -15,6 +15,7 @@ export class AppComponent {
   arrTareas: Tarea[];
   varTexto: string;
   estiloParrafo: any;
+  mostrarParrafo: boolean;
 
   constructor(){
     this.receivedAlert = '';
@@ -28,6 +29,7 @@ export class AppComponent {
       color: 'red',
       fontSize: '24px'
     };
+    this.mostrarParrafo = true;
   }
 
   alertReceived($event): void{
@@ -60,5 +62,9 @@ export class AppComponent {
 
   onChange($event){
     this.estiloParrafo.fontSize = `${$event.target.value}px`
+  }
+
+  onClickMostrarParrafo(){
+    this.mostrarParrafo = !this.mostrarParrafo;
   }
 }

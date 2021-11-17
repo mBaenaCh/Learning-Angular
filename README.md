@@ -301,3 +301,36 @@ La validacion de la seleccion de una clase se da por el valor booleano que esta 
 ### Estructurales
 
 Las cuales modifican estructuras de toda la pagina web, con el uso de estructuras condicionales o bucles.
+
+- **ngIf** Permite mostrar u ocultar elementos en funcion de una expresion logica
+
+```html
+<p *ngIf="checkVar">Some text</p>
+```
+
+```typescript
+checkVar: boolean;
+
+constructor(){
+  this.checkVar = true;
+}
+```
+
+Previamente, las estructuras if-else que usaba angular se lograba por medio de mostrar bloques de contenido HTML en funcion de la variable condicion:
+
+```html
+<p *ngIf="showBlock; then secondBlock else thirdBlock">Text 1</p>
+<ng-template #secondBlock>
+  <p>Text 2</p>
+</ng-template>  
+<ng-template #thirdBlock>
+  <p>Text 3</p>
+</ng-template>
+```
+
+Sin embargo, podemos simplificar nuestro codigo simplemente negando la variable de condicion en otros elementos HTML, por ejemplo:
+
+```html
+<p *ngIf="showBlock">Text 1</p>
+<p *ngIf="!showBlock">Text 2</p>
+```
