@@ -361,6 +361,8 @@ Puedo generar bucles en varias estructuras como tablas u otros elementos HTML (*
 </div>
 ```
 
+En el **.ts** veremos algo similar a esto:
+
 ```typescript
 switchVar: number;
 
@@ -369,7 +371,7 @@ constructor(){
 }
 ```
 
-Tambien podemos usar variables de tipo string:
+Tambien podemos usar variables de tipo string, donde tendremos que añadir comillas simples extras `'opt'`:
 
 ```html
 <div [ngSwitch]="switchVar">
@@ -378,6 +380,8 @@ Tambien podemos usar variables de tipo string:
   <p *ngSwitchDefault>None of the others</p>
 </div>
 ```
+
+En el **.ts** veremos algo similar a esto:
 
 ```typescript
 switchVar: string;

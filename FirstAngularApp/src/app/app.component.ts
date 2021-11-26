@@ -16,8 +16,8 @@ export class AppComponent {
   varTexto: string;
   estiloParrafo: any;
   mostrarParrafo: boolean;
-  switchVar1: string;
-  switchVar2: number;
+  switchVarString: string;
+  switchVarNumber: number;
 
   constructor(){
     this.receivedAlert = '';
@@ -32,8 +32,8 @@ export class AppComponent {
       fontSize: '24px'
     };
     this.mostrarParrafo = true;
-    this.switchVar1 = 'opt21';
-    this.switchVar2 = 1;
+    this.switchVarString = 'opt21';
+    this.switchVarNumber = 1;
   }
 
   alertReceived($event): void{
