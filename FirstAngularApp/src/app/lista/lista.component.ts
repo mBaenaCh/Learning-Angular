@@ -7,23 +7,28 @@ import { Tarea } from '../models/tarea.model';
 })
 export class ListaComponent implements OnInit {
   @Input() tareas: Tarea[];
-  theTextToShow: string;
 
   constructor() {
-    
-   }
+
+  }
 
   ngOnInit(): void {
     
   }
 
-  mostrarTareas() {
-    let estructura = '<ul>';
-    for (let tarea of this.tareas){
-      estructura += `<li>${tarea.titulo} - ${tarea.descripcion}</li>`
+  cambiarEstado(tarea): void{
+    if(tarea.estaCompleta === false){
+      //Incompleto a completo
+      tarea.estaCompleta = true;      
+    } else {
+      //Completo a incompleto
+      tarea.estaCompleta = false;
     }
-    estructura+= '</ul>';
-    return estructura;
+    console.log(tarea.estaCompleta);
+  }
+
+  eliminarTarea(tarea): void{
+      this.tareas = this.tareas.filter(item => item!=tarea);
   }
 
 }

@@ -1,14 +1,17 @@
 .formulario{
     border: 1px solid black;
     width: 200px;
-    height: 100px;
+    height: 130px;
     padding: 10px;
     text-align: center;
     background-color: cadetblue;
     margin-right: 10px;
 }
 
-button{
-    margin-top: 5px;
+.validacion{
+    color: red;
+}
+p{
+    font-size: 14px;
 }
 

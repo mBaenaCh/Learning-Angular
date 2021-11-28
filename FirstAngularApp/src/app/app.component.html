@@ -66,3 +66,9 @@
     <p *ngSwitchCase="2">Option 2</p>
     <p *ngSwitchDefault>None of the others</p>
 </div>-->
+
+<!-- ToDo list mejorado -->
+<div class="tareas">
+    <app-formulario (tareaCreada)="tareaRecibida($event)"></app-formulario>
+    <app-lista [tareas]="arrTareas"></app-lista>
+</div>

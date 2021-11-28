@@ -1,11 +1,14 @@
-<div class="formulario">
-    <div class="titulo">
-        <label>Título</label>
-        <input type="text" [(ngModel)]="nuevaTarea.titulo">
+<div>
+    <div class="formulario">
+        <div class="titulo">
+            <label>Título</label>
+            <input type="text" [(ngModel)]="nuevaTarea.titulo">
+        </div>
+        <div class="descripcion">
+            <label>Descripción</label>
+            <input type="text" [(ngModel)]="nuevaTarea.descripcion">
+        </div>
+        <p class="validacion" *ngIf="hayError">{{textoError}}</p>
+        <button (click)="onClick()">Guardar</button>
     </div>
-    <div class="descripcion">
-        <label>Descripción</label>
-        <input type="text" [(ngModel)]="nuevaTarea.descripcion">
-    </div>
-    <button (click)="onClick()">Save</button>
 </div>

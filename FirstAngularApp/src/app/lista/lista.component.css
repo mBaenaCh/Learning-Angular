@@ -1,8 +1,26 @@
-.lista {
+.lista{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.toDo {
     border: 1px solid black;
     width: 200px;
-    height: 100px;
-    padding: 10px;
+    height: 130px;
+    padding: 2px;
     text-align: center;
-    background-color:cornsilk;
+}
+
+.incompleto {
+    background-color:crimson;
+}
+
+.completo{
+    background-color: forestgreen;
+}
+
+button{
+    margin-right: 5px;
 }

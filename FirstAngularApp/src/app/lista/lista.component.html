@@ -1,1 +1,8 @@
-<div class="lista" [innerHTML]="mostrarTareas()"></div>
+<div class="lista">
+    <div class="toDo" *ngFor="let tarea of tareas" [ngClass]="{incompleto: (tarea.estaCompleta === false), completo: (tarea.estaCompleta === true)}">
+        <h3>{{tarea.titulo}}</h3>
+        <p>{{tarea.descripcion}}</p>
+        <button (click) = "cambiarEstado(tarea)">{{tarea.estaCompleta ? 'Completa' : 'Incompleta'}}</button>
+        <button (click) = "eliminarTarea(tarea)">Borrar</button>
+    </div>
+</div>

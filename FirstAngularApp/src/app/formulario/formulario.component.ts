@@ -7,20 +7,28 @@ import { Tarea } from '../models/tarea.model';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
-  nuevaTarea: Tarea;
-  
   @Output() tareaCreada: EventEmitter<Tarea>;
+  nuevaTarea: Tarea;
+  hayError: boolean;
+  textoError: string;
 
   constructor() { 
-    this.nuevaTarea = new Tarea();
     this.tareaCreada = new EventEmitter();
+    this.nuevaTarea = new Tarea();
+    this.hayError = false;
+    this.textoError = "No pueden haber campos vacios";
   }
 
   ngOnInit(): void {
   }
 
   onClick(): void {
-    this.tareaCreada.emit(this.nuevaTarea);
-    this.nuevaTarea = new Tarea();
+    if(this.nuevaTarea.titulo === "" && this.nuevaTarea.descripcion === ""){
+      this.hayError = true;
+    } else {
+      this.tareaCreada.emit(this.nuevaTarea);
+      this.nuevaTarea = new Tarea();
+      this.hayError = false;
+    }
   }
 }
