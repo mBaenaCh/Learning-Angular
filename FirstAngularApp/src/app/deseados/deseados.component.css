@@ -1,0 +1,13 @@
+h2{
+    text-transform: uppercase;
+    background-color:lightgrey;
+}
+
+.productos{
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    cursor: pointer;
+}

@@ -1,16 +1,15 @@
 .lista{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     justify-content: center;
 }
 
-.toDo {
+.lista .tarea {
     border: 1px solid black;
-    width: 200px;
-    height: 130px;
-    padding: 2px;
+    padding: 10px;
     text-align: center;
+    width: 20%;
+    margin: 5px;
 }
 
 .incompleto {

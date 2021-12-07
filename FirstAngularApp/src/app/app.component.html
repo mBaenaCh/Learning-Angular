@@ -67,8 +67,24 @@
     <p *ngSwitchDefault>None of the others</p>
 </div>-->
 
-<!-- ToDo list mejorado -->
-<div class="tareas">
-    <app-formulario (tareaCreada)="tareaRecibida($event)"></app-formulario>
-    <app-lista [tareas]="arrTareas"></app-lista>
+<!-- ToDo list mejorado 
+<div class="container">
+    <div class="formulario">
+        <app-formulario (tareaCreada)="tareaRecibida($event)"></app-formulario>
+    </div>
+    <div class="lista-tareas">
+        <app-lista [tareas]="arrTareas"></app-lista>
+    </div>
+</div>-->
+
+<!-- Ejercicio caja registradora -->
+<h1>Caja registradora</h1>
+<div class="container">
+    <div class="lista-productos">
+        <app-productos [tipoProducto]="'Comida'" [productos]="arrComidas" (productoSeleccionado)="onRecibirProducto($event)"></app-productos>        
+        <app-productos [tipoProducto]="'Bebidas'" [productos]="arrBebidas" (productoSeleccionado)="onRecibirProducto($event)"></app-productos>
+    </div>
+    <div class="lista-deseados">
+        <app-deseados [productosDeseados] = "arrProductosDeseados"></app-deseados>
+    </div>
 </div>

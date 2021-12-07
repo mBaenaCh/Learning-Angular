@@ -16,6 +16,8 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { MainComponent } from './main/main.component';
 import { SemaforoComponent } from './semaforo/semaforo.component';
 import { BuclesComponent } from './bucles/bucles.component';
+import { ProductosComponent } from './productos/productos.component';
+import { DeseadosComponent } from './deseados/deseados.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { BuclesComponent } from './bucles/bucles.component';
     FormularioComponent,
     MainComponent,
     SemaforoComponent,
-    BuclesComponent
+    BuclesComponent,
+    ProductosComponent,
+    DeseadosComponent
   ],
   imports: [
     BrowserModule,

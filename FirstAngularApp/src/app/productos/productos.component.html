@@ -1,0 +1,7 @@
+<h2>{{tipoProducto}}</h2>
+<div class="listado">
+    <div class="producto" *ngFor="let producto of productos" (click)="onClickProducto(producto)">
+        <h4>{{producto.nombre}}</h4>
+        <p>${{producto.valor}}</p>
+    </div>
+</div>

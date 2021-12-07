@@ -1,8 +1,8 @@
 <div class="lista">
-    <div class="toDo" *ngFor="let tarea of tareas" [ngClass]="{incompleto: (tarea.estaCompleta === false), completo: (tarea.estaCompleta === true)}">
+    <div class="tarea" *ngFor="let tarea of tareas; let indice = index;" [ngClass]="{incompleto: !tarea.estaCompleta, completo: tarea.estaCompleta}">
         <h3>{{tarea.titulo}}</h3>
         <p>{{tarea.descripcion}}</p>
-        <button (click) = "cambiarEstado(tarea)">{{tarea.estaCompleta ? 'Completa' : 'Incompleta'}}</button>
-        <button (click) = "eliminarTarea(tarea)">Borrar</button>
+        <button (click) = "cambiarEstado(tarea)">{{tarea.estaCompleta ? 'Incompleta' : 'Completa'}}</button>
+        <button (click) = "eliminarTarea(indice)">Borrar</button>
     </div>
 </div>
