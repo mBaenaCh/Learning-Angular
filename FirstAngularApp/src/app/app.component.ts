@@ -22,6 +22,7 @@ export class AppComponent {
   arrComidas: Producto[];
   arrBebidas: Producto[];
   arrProductosDeseados: Producto[];
+  configInputDirectivaCustom: any;
 
   constructor(){
     this.receivedAlert = '';
@@ -49,6 +50,10 @@ export class AppComponent {
                         new Producto('Cerveza', 6000)
                       ];
     this.arrProductosDeseados = [];
+    this.configInputDirectivaCustom = {
+      colorHover: 'cyan',
+      colorNoHover: 'orange'
+    }
   }
 
   alertReceived($event): void{

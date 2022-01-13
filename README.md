@@ -483,3 +483,17 @@ import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@an
 ```
 
 Dichas clases mencionadas en las asignaciones se presumen que se encuentran en el archivo .css del archivo .html donde se halla el elemento html con la directiva (nuevamente, mirar app.component.html, app.component.css y subrayado.directive.ts).
+
+Por ultimo, tambien podemos recibir valores en la directiva por medio del uso del decorador `@Input`:
+
+```typescript
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding, Input } from '@angular/core';
+
+@Input('nombreDirectiva') propiedad: tipoPropiedad;
+```
+
+Donde podremos asignar valores que asociaremos al Input de nuestra directiva:
+
+```HTML
+<p [nombreDirectiva]="variable">Lorem</p>
+```
