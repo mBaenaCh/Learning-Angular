@@ -16,3 +16,12 @@ h1{
     width: 40%;
     padding: 10px;
 }
+
+.hover{
+    background-color: blanchedalmond;
+}
+
+.noHover{
+    background-color:darkgray;
+}
+

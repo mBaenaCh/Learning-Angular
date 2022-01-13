@@ -430,20 +430,56 @@ Lo ideal del uso de directivas es la de interactuar con el elemento sobre el cua
 ```typescript
 import { Directive, ElementRef } from '@angular/core';
 
-constructor(elem: ElementRef) {
-  elem.nativeElement.style.textDecoration = 'underline';
+constructor(private elem: ElementRef) {
+  this.elem.nativeElement.style.textDecoration = 'underline';
 }
 ```
 
+El uso del control de acceso "private" nos permite usar esa propiedad dentro de todo el contexto del archivo de la directiva por medio de una referencia a este con `this`.
+
 Dado que estoy trayendo el elemento sobre el cual aplico la directiva, por medio de JavaScript nativo puedo editar las propiedades de este elemento, por ejemplo aplicando solo un estilo al texto para que quede "subrayado".
 
-Dado que una aplicacion de Angular puede ser vista en distintos entornos (movil, navegador, escritorio), podemos aplicar estilos generalizados para que estos se vean de la misma manera en estos distintos entornos. Esto lo logramos por medio de la propiedad `Renderer` de nuestra directiva, lo cual veriamos de la siguiente manera:
+Debido a que una aplicacion de Angular puede ser vista en distintos entornos (movil, navegador, escritorio), podemos aplicar estilos generalizados para que estos se vean de la misma manera en estos distintos entornos. Esto lo logramos por medio de la propiedad `Renderer` de nuestra directiva, lo cual veriamos de la siguiente manera:
 
 ```typescript
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
-constructor(elem: ElementRef, renderer: Renderer2) {
-  renderer.setStyle(elem.nativeElement, 'text-decoration', 'underline');
-  renderer.setStyle(elem.nativeElement, 'color', 'indigo');
+constructor(private elem: ElementRef, private renderer: Renderer2) {
+  this.renderer.setStyle(this.elem.nativeElement, 'text-decoration', 'underline');
+  this.renderer.setStyle(this.elem.nativeElement, 'color', 'indigo');
 }
 ```
+
+Para el manejo de nuestras directivas personalizadas, tenemos el decorador `@HostListener`, el cual permite administrar la captura de eventos sobre elementos a los cuales aplicamos nuestras directivas. Podemos tener en cuenta eventos como `mouseover`, `click`, etc.
+
+```typescript
+import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
+
+@HostListener('mouseover') onHover(){
+  this.renderer.setStyle(this.elem.nativeElement, 'color', 'green');
+}
+
+@HostListener('mouseout') offHover(){
+  this.renderer.setStyle(this.elem.nativeElement, 'color', 'indigo');
+}
+```
+
+Tambien, tenemos la posibilidad de editar propiedades del elemento HTML sobre el cual añadimos directivas, propiedades como `class`, `id`, etc. Esto lo logramos por medio del decorador `@HostBinding`, el cual es usado a modo de propiedad:
+
+```typescript
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
+
+@HostBinding('class') isHover: string;
+
+@HostListener('mouseover') onHover(){
+  this.renderer.setStyle(this.elem.nativeElement, 'color', 'green');
+  this.isHover = 'hover';
+}
+
+@HostListener('mouseout') offHover(){
+  this.renderer.setStyle(this.elem.nativeElement, 'color', 'indigo');
+  this.isHover = 'noHover';
+}
+```
+
+Dichas clases mencionadas en las asignaciones se presumen que se encuentran en el archivo .css del archivo .html donde se halla el elemento html con la directiva (nuevamente, mirar app.component.html, app.component.css y subrayado.directive.ts).
