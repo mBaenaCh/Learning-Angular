@@ -18,6 +18,7 @@ import { SemaforoComponent } from './semaforo/semaforo.component';
 import { BuclesComponent } from './bucles/bucles.component';
 import { ProductosComponent } from './productos/productos.component';
 import { DeseadosComponent } from './deseados/deseados.component';
+import { SubrayadoDirective } from './directives/subrayado.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DeseadosComponent } from './deseados/deseados.component';
     SemaforoComponent,
     BuclesComponent,
     ProductosComponent,
-    DeseadosComponent
+    DeseadosComponent,
+    SubrayadoDirective
   ],
   imports: [
     BrowserModule,

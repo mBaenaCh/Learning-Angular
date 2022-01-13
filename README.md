@@ -35,7 +35,7 @@ Dentro de un proyecto de angular encontraremos algo similar a esto, en cuanto a 
     <!-- Componentes padre de mi app -->
     <app-padre>
         <!-- Etiquetas html -->
-        <!-- Componente hijos de mis componentes>-->
+        <!-- Componente hijos>-->
         <app-hijo>
             <!-- Etiquetas html -->
         </app-hijo>
@@ -390,3 +390,49 @@ constructor(){
   this.switchVar = 'opt1';
 }
 ```
+
+- **Directivas personalizadas** Que realicen funciones repetitivas que podemos reusar a lo largo de nuestro proyecto.
+
+Puedo crear directivas por medio del comando `ng generate directive directives/Directiva`, lo ideal seria ubicarlas en una carpeta de `directives`. Las directivas tambien incluyen archivos para el Testing, podemos omitirlas con la flag `--skip-tests`.
+
+El generar directivas crea la declaracion en `app.module`, lo cual permite usar la directiva en el resto de componentes de la aplicacion (**Para mas informacion, revisar la directiva "Subrayado"**).
+
+Si el nombre de nuestra directiva es instanciada como:
+
+```typescript
+@Directive({
+  selector: '[nombreDirectiva]'
+})
+```
+
+Esta sera llamada como propiedad de HTML, lo cual es lo mas recomendable.
+
+```HTML
+<p nombreDirectiva>Lorem</p>
+```
+
+Pero, si nuestra directiva es instanciada de la siguiente manera:
+
+```typescript
+@Directive({
+  selector: '.nombreDirectiva'
+})
+```
+
+Esta sera llamada como una clase dentro del elemento HTML:
+
+```HTML
+<p class="nombreDirectiva">Lorem</p>
+```
+
+Lo ideal del uso de directivas es la de interactuar con el elemento sobre el cual se llaman. Esto se hace por medio de la inyeccion de dependencias de un parametro, en el constructor, de tipo ElementRef:
+
+```typescript
+import { ElementRef } from '@angular/core';
+
+constructor(elem: ElementRef) {
+  elem.nativeElement.style.textDecoration = 'underline';
+}
+```
+
+Dado que estoy trayendo el elemento sobre el cual aplico la directiva, por medio de JavaScript nativo puedo editar las propiedades de este elemento, por ejemplo aplicando solo un estilo al texto para que quede "subrayado".
