@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 
 /*Uso del decorador @Directive, con el uso de la propiedad "selector"
@@ -17,8 +17,9 @@ export class SubrayadoDirective {
 
      
   */
-  constructor(elem: ElementRef) {
-    elem.nativeElement.style.textDecoration = 'underline';
+  constructor(elem: ElementRef, renderer: Renderer2) {
+    renderer.setStyle(elem.nativeElement, 'text-decoration', 'underline');
+  renderer.setStyle(elem.nativeElement, 'color', 'indigo');
    }
 
 }

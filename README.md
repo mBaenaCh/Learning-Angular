@@ -428,7 +428,7 @@ Esta sera llamada como una clase dentro del elemento HTML:
 Lo ideal del uso de directivas es la de interactuar con el elemento sobre el cual se llaman. Esto se hace por medio de la inyeccion de dependencias de un parametro, en el constructor, de tipo ElementRef:
 
 ```typescript
-import { ElementRef } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 constructor(elem: ElementRef) {
   elem.nativeElement.style.textDecoration = 'underline';
@@ -436,3 +436,14 @@ constructor(elem: ElementRef) {
 ```
 
 Dado que estoy trayendo el elemento sobre el cual aplico la directiva, por medio de JavaScript nativo puedo editar las propiedades de este elemento, por ejemplo aplicando solo un estilo al texto para que quede "subrayado".
+
+Dado que una aplicacion de Angular puede ser vista en distintos entornos (movil, navegador, escritorio), podemos aplicar estilos generalizados para que estos se vean de la misma manera en estos distintos entornos. Esto lo logramos por medio de la propiedad `Renderer` de nuestra directiva, lo cual veriamos de la siguiente manera:
+
+```typescript
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+constructor(elem: ElementRef, renderer: Renderer2) {
+  renderer.setStyle(elem.nativeElement, 'text-decoration', 'underline');
+  renderer.setStyle(elem.nativeElement, 'color', 'indigo');
+}
+```
