@@ -537,9 +537,11 @@ Nuestro array de rutas debe tener un orden, debido a que el navegador verifica u
 Tambien, podemos crear una ruta principal o home, la cual podria tener un valor vacio como nombre y que este valor vacio se **deba cumplir** (full) cuando se realice una consulta a esa ruta y que esta redirija a otra ruta o que lleve a un componente, por ejemplo:
 
 ```json
+{
   path: '',
   pathMatch: 'full',
   redirectTo: 'otra ruta'
+}
 ```
 
 ### Router link
@@ -581,8 +583,10 @@ onClick(ruta: string): void {
 Son aquellas que tienen una ruta que varia segun el valor de alguna variable dentro de la logica de mi aplicacion y que esta pueda ser usada por otras rutas, por ejemplo:
 
 ```json
+{
   path: 'detalle/:id',
   component: DetalleComponent
+}
 ```
 
 Dentro de la logica del componente asignado a la ruta dinamica, se puede acceder al valor dinamico por medio de un objeto de tipo `ActivatedRoute` y su propiedad `params`, lo cual permite "*suscribirse*" a la informacion dinamica (De tipo `Observable`) que tenga el parametro de la ruta, con el nombre que le hallamos dado:
@@ -602,12 +606,14 @@ ngOnInit(): void {
 Nos permite añadir mas direcciones a rutas principales como por ejemplo acceder a informacion de una id dentro del detalle que establecimos anteriormente `/detalle/:id/hijo`. Dentro de nuestras rutas, podemos ver las rutas hijas con la propiedad `children`:
 
 ```json
+{
   path: 'detalle/id',
   component: DetalleComponent,
   children: [
     {path: 'hijo1', component: Hijo1Component},
     {path: 'hijo2', component: Hijo2Component},
   ]
+}
 ```
 
 Las rutas hijas dependen de que la ruta padre exista primero.
@@ -653,9 +659,11 @@ Los Guards son objetos que se puede inyectar en componentes o donde sea necesari
 Para llamar un Guard en alguna ruta, solo debemos añadirlo a la propiedad "canActivate" del objeto de la ruta, esta propiedad contiene un array de Guards que se valida en orden:
 
 ```json
+{
   path: 'nombre ruta',
   component: 'NombreComponente',
   canActivate: [ guard1, guard2]
+}
 ```
 
 Los ejemplos de Routing se pueden ver en los componentes "DetalleProducto", "detalle/Fotos" y "detalle/Quejas".
