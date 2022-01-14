@@ -2,9 +2,26 @@ h1{
     text-align: center;
 }
 .container{
-    width: 80%;
-    margin: 30px auto 0 auto;
+    width: 60%;
+    margin: 20px auto 0 auto;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    text-align: center;
+}
+
+.row.productos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.row.productos div{
+    width: 50%; 
 }
 
 .lista-productos{
@@ -14,6 +31,10 @@ h1{
 
 .lista-deseados{
     width: 40%;
+    padding: 10px;
+}
+.formulario{
+    width: 100%;
     padding: 10px;
 }
 

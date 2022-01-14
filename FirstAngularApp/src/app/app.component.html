@@ -89,8 +89,28 @@
     </div>
 </div> -->
 
-<!-- Uso de directivas personalizadas (Subrayado)-->
+<!-- Uso de directivas personalizadas (Subrayado)
 <p [subrayado]="configInputDirectivaCustom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>
-<p [subrayado]="{colorHover: 'yellow', colorNoHover: 'purple'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>
+<p [subrayado]="{colorHover: 'yellow', colorNoHover: 'purple'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>-->
 
+<!-- Ejercicio lista de compras -->
+
+<div class="container">
+    <div class="row">
+        <app-formulario2 [departamentos]="arrDepartamentos" (productoCreado)="onRecibirProductoCreado($event)">
+        </app-formulario2>
+    </div>
+    <div class="row productos">
+        <div class="derecha">
+            <h2>Lista de productos:</h2>
+            <app-productos2 accion="Comprar" [productos]="arrProductos"
+                (productoSeleccionado)="onRecibirProductoComprado($event)"></app-productos2>
+        </div>
+        <div class="izquierda">
+            <h2>Lista de compra:</h2>
+            <app-productos2 accion="Quitar" [productos]="arrProductosCompra"
+                (productoSeleccionado)="onRecibirProductoQuitado($event)"></app-productos2>
+        </div>
+    </div>
+</div>

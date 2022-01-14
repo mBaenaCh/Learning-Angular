@@ -19,6 +19,8 @@ import { BuclesComponent } from './bucles/bucles.component';
 import { ProductosComponent } from './productos/productos.component';
 import { DeseadosComponent } from './deseados/deseados.component';
 import { SubrayadoDirective } from './directives/subrayado.directive';
+import { Formulario2Component } from './formulario2/formulario2.component';
+import { Productos2Component } from './productos2/productos2.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SubrayadoDirective } from './directives/subrayado.directive';
     BuclesComponent,
     ProductosComponent,
     DeseadosComponent,
-    SubrayadoDirective
+    SubrayadoDirective,
+    Formulario2Component,
+    Productos2Component
   ],
   imports: [
     BrowserModule,

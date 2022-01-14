@@ -1,0 +1,25 @@
+.productos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+}
+
+.producto{
+    border: 1px solid gray;
+    padding: 10px;
+    width: 200px;
+    margin-top: 30px;
+}
+
+.producto div p:first-child{
+    float: left;
+}
+
+.producto div p:last-child{
+    float: right;
+}
+.producto h3{
+    text-transform: uppercase;
+}

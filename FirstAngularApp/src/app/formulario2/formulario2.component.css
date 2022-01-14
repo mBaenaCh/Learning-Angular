@@ -1,0 +1,21 @@
+.formulario{
+    padding: 20px;
+    border: solid 1px black;
+    width: 100%;
+    max-width: 296px;
+}
+
+.formulario button{
+    text-align: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.validacion{
+    color: crimson;
+    font-size: 14px;
+}
