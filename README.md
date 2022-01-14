@@ -517,8 +517,10 @@ Con el anterior paso, deberemos incluir el `RouterModule` en los `imports` de nu
 Las rutas se manejan en un array de tipo `Routes` que alberga objetos con la siguiente estructura:
 
 ```json
-  path: 'nombre ruta',
-  component: 'componente asociado a la ruta'
+{
+  "path": "nombre ruta",
+  "component": "componente asociado a la ruta"
+}
 ```
 
 Podremos usar nuestras rutas al llevar el componente `<router-outlet></router-outlet>` en el archivo `app.component.html`
@@ -526,8 +528,10 @@ Podremos usar nuestras rutas al llevar el componente `<router-outlet></router-ou
 Para redigir de una ruta a otra, nuestro objeto de ruta se vera de la siguiente manera:
 
 ```json
-  'path': 'nombre ruta',
-  'redirectTo': 'nombre ruta a la cual redirigir'
+{
+  "path": "nombre ruta",
+  "redirectTo": "nombre ruta a la cual redirigir"
+}
 ```
 
 El redigir de una ruta a otra nos llevara a que el nombre de la ruta final tambien cambie a la cual nos redirigimos.
@@ -538,9 +542,9 @@ Tambien, podemos crear una ruta principal o home, la cual podria tener un valor 
 
 ```json
 {
-  path: '',
-  pathMatch: 'full',
-  redirectTo: 'otra ruta'
+  "path": "",
+  "pathMatch": "full",
+  "redirectTo": "otra ruta"
 }
 ```
 
@@ -584,8 +588,8 @@ Son aquellas que tienen una ruta que varia segun el valor de alguna variable den
 
 ```json
 {
-  path: 'detalle/:id',
-  component: DetalleComponent
+  "path": "detalle/:id",
+  "component": "DetalleComponent"
 }
 ```
 
@@ -607,11 +611,11 @@ Nos permite añadir mas direcciones a rutas principales como por ejemplo acceder
 
 ```json
 {
-  path: 'detalle/id',
-  component: DetalleComponent,
-  children: [
-    {path: 'hijo1', component: Hijo1Component},
-    {path: 'hijo2', component: Hijo2Component},
+  "path": "detalle/id",
+  "component": "DetalleComponent",
+  "children": [
+    {"path": "hijo1", "component": "Hijo1Component"},
+    {"path": "hijo2", "component": "Hijo2Component"},
   ]
 }
 ```
@@ -658,11 +662,11 @@ Los Guards son objetos que se puede inyectar en componentes o donde sea necesari
 
 Para llamar un Guard en alguna ruta, solo debemos añadirlo a la propiedad "canActivate" del objeto de la ruta, esta propiedad contiene un array de Guards que se valida en orden:
 
-```json
+```JSON
 {
-  path: 'nombre ruta',
-  component: 'NombreComponente',
-  canActivate: [ guard1, guard2]
+  "path": "nombre ruta",
+  "component": "NombreComponente",
+  "canActivate": [ guard1, guard2]
 }
 ```
 
