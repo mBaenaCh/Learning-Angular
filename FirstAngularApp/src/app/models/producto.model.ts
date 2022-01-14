@@ -6,6 +6,6 @@ export class Producto{
     constructor(pNombre: string, pValor: number){
         this.nombre = pNombre;
         this.valor = pValor;
-        this.cantidad = 0;
+        this.cantidad = 1;
     }
 }

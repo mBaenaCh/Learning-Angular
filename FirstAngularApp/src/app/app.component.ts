@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {Tarea} from '../app/models/tarea.model';
+import { Tarea } from '../app/models/tarea.model';
 import { Producto } from './models/producto.model';
 import { Producto2 } from './models/producto2.model';
+import { ProductosService } from './services/productos.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,11 +29,12 @@ export class AppComponent {
   arrDepartamentos: string[];
   arrProductos: Producto2[];
   arrProductosCompra: Producto2[];
+  arrProductosServicio: Producto[];
 
-  constructor(private router: Router){
+  constructor(private router: Router, private productosService: ProductosService) {
     this.receivedAlert = '';
     this.titles = ['Angular', 'Vue', 'React'];
-    this.numbers = Array.from({length: 10}, () => Math.floor(Math.random()*10));
+    this.numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
     this.textField = 'Initial value';
     this.someObject = {};
     this.arrTareas = [];
@@ -44,16 +46,16 @@ export class AppComponent {
     this.mostrarParrafo = true;
     this.switchVarString = 'opt21';
     this.switchVarNumber = 1;
-    this.arrComidas = [ new Producto('Hamburguesa', 11500), 
-                        new Producto('Pizza', 24000), 
-                        new Producto('Cordon blue', 28000),
-                        new Producto('Arepa rellena', 9800),
-                        new Producto('Empanada', 1200)
-                      ];
-    this.arrBebidas = [ new Producto('Gaseosa', 3700),
-                        new Producto('Agua', 3700),
-                        new Producto('Cerveza', 6000)
-                      ];
+    this.arrComidas = [new Producto('Hamburguesa', 11500),
+    new Producto('Pizza', 24000),
+    new Producto('Cordon blue', 28000),
+    new Producto('Arepa rellena', 9800),
+    new Producto('Empanada', 1200)
+    ];
+    this.arrBebidas = [new Producto('Gaseosa', 3700),
+    new Producto('Agua', 3700),
+    new Producto('Cerveza', 6000)
+    ];
     this.arrProductosDeseados = [];
     this.configInputDirectivaCustom = {
       colorHover: 'cyan',
@@ -62,13 +64,14 @@ export class AppComponent {
     this.arrDepartamentos = ["Lacteos", "Carnicos", "Harinas", "Bebidas", "Aceites", "Aderezos"];
     this.arrProductos = [];
     this.arrProductosCompra = [];
+
   }
 
-  alertReceived($event): void{
+  alertReceived($event): void {
     this.receivedAlert = $event;
   }
 
-  stopCountReceived($event): void{
+  stopCountReceived($event): void {
     console.log($event);
   }
 
@@ -76,7 +79,7 @@ export class AppComponent {
     this.arrTareas.push($event);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     /*let cont=0;
     setInterval( () => {
       this.varTexto = `Cambio desde el padre ${cont++}`;
@@ -85,18 +88,18 @@ export class AppComponent {
   }
 
   cambiaColor(pColor: string) {
-    if(pColor === 'rosa'){
+    if (pColor === 'rosa') {
       this.estiloParrafo.color = 'pink';
-    } else if(pColor === 'amarillo') {
+    } else if (pColor === 'amarillo') {
       this.estiloParrafo.color = 'yellow';
     }
   }
 
-  onChange($event){
+  onChange($event) {
     this.estiloParrafo.fontSize = `${$event.target.value}px`
   }
 
-  onClickMostrarParrafo(){
+  onClickMostrarParrafo() {
     this.mostrarParrafo = !this.mostrarParrafo;
   }
   /* Ejercicio carrito de compras 
@@ -115,20 +118,38 @@ export class AppComponent {
     
   }*/
 
-  onRecibirProductoCreado($event): void{
+  onRecibirProductoCreado($event): void {
     this.arrProductos.push($event);
   }
 
-  onRecibirProductoComprado($event): void{
+  onRecibirProductoComprado($event): void {
     this.arrProductosCompra.push($event);
-    this.arrProductos = this.arrProductos.filter(item => item!=$event);
+    this.arrProductos = this.arrProductos.filter(item => item != $event);
   }
 
-  onRecibirProductoQuitado($event): void{
-    this.arrProductosCompra = this.arrProductosCompra.filter(item => item!=$event);
+  onRecibirProductoQuitado($event): void {
+    this.arrProductosCompra = this.arrProductosCompra.filter(item => item != $event);
   }
 
   onClick(ruta: string) {
     this.router.navigate([ruta]);
   }
+
+  onClickCargarProductos(): void {
+    this.arrProductosServicio = this.productosService.getAllProductos();
+  }
+
+  /* Dado que estaremos simulando el uso de Promises
+     sera ideal usar funciones asincronas con Async y Await,
+     tambien vamos a usar un try-catch para validar si hay error
+     en algun momento de la ejecucion
+  */
+  async onClickFiltrarProductos() {
+    try {
+      this.arrProductosServicio = await this.productosService.getAllProductosBaratos();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 }

@@ -12,8 +12,10 @@ export class RandomGuard implements CanActivate {
     const numAleatorio = Math.random();
     console.log(numAleatorio);
     if(numAleatorio > 0.4){
+      console.log("Se pudo ir hacia la ruta");
       return true;
     }else{
+      console.log("No se pudo ir hacia la ruta");
       return false;
     }
   }

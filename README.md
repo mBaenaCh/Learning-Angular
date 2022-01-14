@@ -671,3 +671,37 @@ Para llamar un Guard en alguna ruta, solo debemos añadirlo a la propiedad "canA
 ```
 
 Los ejemplos de Routing se pueden ver en los componentes "DetalleProducto", "detalle/Fotos" y "detalle/Quejas".
+
+## Servicios
+
+Son clases aislada que nos permiten realizar acciones concretas sobre los datos de nuestra aplicacion.
+
+Angular permite realizar inyeccion de dependencias de los servicios en los componentes donde vayan a ser usados.
+
+Son utiles cuando necesitamos compartir una misma informacion entre los diferentes componentes, sin necesidad de duplicar estos en cada componente cuando se necesite.
+
+Son el punto de salida para poder recuperar datos externos a nuestra aplicacion.
+
+Para crear un servicio usamos el comando:
+
+```cli
+ng generate service services/NombreServicio 
+```
+
+Para usar un servicio en algun otro componente solo debemos inyectarlo en el constructor de este:
+
+```typescript
+constructor(private nombreService: NombreService){ }
+```
+
+Un servicio se puede compartir en todos los componentes y tener la misma informacion a largo de estos, por lo que es normal ver que 2 componentes que usen un mismo servicio cuenten con la misma informacion. Esto sucede gracias al decorador `@Injectable` con el que cuenta el servicio, lo cual convierte el servicio en un **Singleton**, al remover este decorador se quita esta caracteristica.
+
+Si tenemos un servicio que no es **Singleton**, debemos añadir la siguiente propiedad a los componentes en los que se desee incluir el servicio:
+
+```typescript
+@Component({
+  providers: [NombreServicio]
+})
+```
+
+Posteriormente, evidenciaremos que para distintas llamadas del servicio, en distintos componentes, no se tendra la misma informacion entre componentes.
