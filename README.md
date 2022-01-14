@@ -666,7 +666,7 @@ Para llamar un Guard en alguna ruta, solo debemos añadirlo a la propiedad "canA
 {
   "path": "nombre ruta",
   "component": "NombreComponente",
-  "canActivate": [ guard1, guard2]
+  "canActivate": [ "guard1", "guard2"]
 }
 ```
 
