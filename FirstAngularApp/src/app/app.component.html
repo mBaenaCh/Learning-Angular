@@ -94,7 +94,7 @@
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>
 <p [subrayado]="{colorHover: 'yellow', colorNoHover: 'purple'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi assumenda quam molestiae, nam voluptatum voluptates, doloremque quia harum quaerat at obcaecati exercitationem consequatur! Optio tenetur inventore quasi sit a?</p>-->
 
-<!-- Ejercicio lista de compras -->
+<!-- Ejercicio lista de compras 
 
 <div class="container">
     <div class="row">
@@ -113,4 +113,27 @@
                 (productoSeleccionado)="onRecibirProductoQuitado($event)"></app-productos2>
         </div>
     </div>
+</div>-->
+
+<!-- Ejemplo de Routing -->
+<header>
+    <h1>Header</h1>
+</header>
+<div>
+    <p>Contenido pagina</p>
+    <div class="rutas">
+        <a [routerLink]="['/info']" routerLinkActive="activa">Hacia info</a>
+        <a [routerLink]="['/about']" routerLinkActive="activa">Hacia about</a>
+        <a [routerLink]="['/contact']" routerLinkActive="activa">Hacia contact</a>
+    </div>
+    <div>
+        <button (click)="onClick('info')">Hacia info</button>
+        <button (click)="onClick('about')">Hacia about</button>
+        <button (click)="onClick('contact')">Hacia contact</button>
+        <button (click)="onClick('productos/123')">Hacia detalle</button>
+    </div>
+    <router-outlet></router-outlet>
 </div>
+<footer>
+    <h1>Footer</h1>
+</footer>

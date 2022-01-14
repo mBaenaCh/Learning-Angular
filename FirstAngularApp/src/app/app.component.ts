@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {Tarea} from '../app/models/tarea.model';
 import { Producto } from './models/producto.model';
 import { Producto2 } from './models/producto2.model';
@@ -28,7 +29,7 @@ export class AppComponent {
   arrProductos: Producto2[];
   arrProductosCompra: Producto2[];
 
-  constructor(){
+  constructor(private router: Router){
     this.receivedAlert = '';
     this.titles = ['Angular', 'Vue', 'React'];
     this.numbers = Array.from({length: 10}, () => Math.floor(Math.random()*10));
@@ -125,5 +126,9 @@ export class AppComponent {
 
   onRecibirProductoQuitado($event): void{
     this.arrProductosCompra = this.arrProductosCompra.filter(item => item!=$event);
+  }
+
+  onClick(ruta: string) {
+    this.router.navigate([ruta]);
   }
 }

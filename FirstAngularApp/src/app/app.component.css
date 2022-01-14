@@ -46,3 +46,13 @@ h1{
     background-color:darkgray;
 }
 
+.rutas{
+    display: flex;
+    flex-direction: column;
+}
+
+.activa{
+    background-color: lightcoral;
+}
+
+

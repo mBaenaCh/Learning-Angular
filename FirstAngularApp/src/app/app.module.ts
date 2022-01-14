@@ -21,6 +21,14 @@ import { DeseadosComponent } from './deseados/deseados.component';
 import { SubrayadoDirective } from './directives/subrayado.directive';
 import { Formulario2Component } from './formulario2/formulario2.component';
 import { Productos2Component } from './productos2/productos2.component';
+import { AppRoutingModule } from './app-routing.module';
+import { InfoComponent } from './components/info/info.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { RouterModule } from '@angular/router';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import { QuejasComponent } from './components/detalle/quejas/quejas.component';
+import { FotosComponent } from './components/detalle/fotos/fotos.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +50,19 @@ import { Productos2Component } from './productos2/productos2.component';
     DeseadosComponent,
     SubrayadoDirective,
     Formulario2Component,
-    Productos2Component
+    Productos2Component,
+    InfoComponent,
+    AboutComponent,
+    ContactComponent,
+    DetalleProductoComponent,
+    QuejasComponent,
+    FotosComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

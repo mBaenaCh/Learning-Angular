@@ -497,3 +497,165 @@ Donde podremos asignar valores que asociaremos al Input de nuestra directiva:
 ```HTML
 <p [nombreDirectiva]="variable">Lorem</p>
 ```
+
+## Routing
+
+Dado que las aplicaciones de Angular son SPA, el uso de enlaces para navegar entre paginas, por medio de Routing, es totalmente distinto al tradicional. En este no tendremos que cargar todo un HTML que contenga otra pagina con otro contenido, sino una pagina con los componentes exclusivos de esa misma.
+
+Como tal, esta libreria nos permite activar o desactivar componentes en funcion de la ruta que tengamos en nuestro navegador.
+
+Para añadir la libreria de Routing a nuestro proyecto, el CLI de Angular nos pedira si deseamos incluirlo cuando creemos uno nuevo, pero si ya creamos un proyecto y deseamos incluir este modulo, podemos usar el comando:
+
+```cli
+ng generate module app-routing --flat --module=app
+```
+
+Con el anterior paso, deberemos incluir el `RouterModule` en los `imports` de nuestro `app.module.ts`
+
+### Routes
+
+Las rutas se manejan en un array de tipo `Routes` que alberga objetos con la siguiente estructura:
+
+```json
+  path: 'nombre ruta',
+  component: 'componente asociado a la ruta'
+```
+
+Podremos usar nuestras rutas al llevar el componente `<router-outlet></router-outlet>` en el archivo `app.component.html`
+
+Para redigir de una ruta a otra, nuestro objeto de ruta se vera de la siguiente manera:
+
+```json
+  'path': 'nombre ruta',
+  'redirectTo': 'nombre ruta a la cual redirigir'
+```
+
+El redigir de una ruta a otra nos llevara a que el nombre de la ruta final tambien cambie a la cual nos redirigimos.
+
+Nuestro array de rutas debe tener un orden, debido a que el navegador verifica una por una cual nombre de ruta coincide con la de la solicitud realizada. Generalmente, podemos crear una ruta de nombre `**` que nos redirija a otra ruta o a un componente que indique que esa ruta no existe (Algo grafico que indique un codigo de estado 404, por ejemplo).
+
+Tambien, podemos crear una ruta principal o home, la cual podria tener un valor vacio como nombre y que este valor vacio se **deba cumplir** (full) cuando se realice una consulta a esa ruta y que esta redirija a otra ruta o que lleve a un componente, por ejemplo:
+
+```json
+  path: '',
+  pathMatch: 'full',
+  redirectTo: 'otra ruta'
+```
+
+### Router link
+
+Permite navegar entre rutas a nivel de componentes, como una propiedad de un elemento html, con la ventaja de no reiniciar la pagina:
+
+```html
+<a [routerLink]="['/info']">Hacia la ruta info</a>
+```
+
+Recibe como parametro la posicion en un array, el cual es nuestro array de rutas y el nombre de la ruta a la cual nos queremos dirigir.
+
+### Router Link Active
+
+Nos permite añadir una clase al elemento html sobre el cual tenemos un Router Link, lo que simularia por ejemplo un boton con algun estilo que indique que este se encuentra activo (Como en un navbar)
+
+```html
+<a [routerLink]="['/info']" routerLinkActive="nombre clase">Hacia la ruta info</a>
+```
+
+### Router navigate
+
+Es un metodo que nos permite navegar a otra ruta luego de que se realice algun evento en un metodo del archivo .ts de un componente.
+
+Para esto debemos realizar una inyeccion de dependencia del modulo Router, esto lo podemos hacer llevando al constructor de nuestro componente un atributo de tipo `Router` y simplemente llamar el metodo `navigate` para redireccionar hacia alguna ruta de nuestro array de rutas:
+
+```typescript
+import { Router } from '@angular/router';
+
+constructor(private router: Router){}
+
+onClick(ruta: string): void {
+  this.router.navigate([ruta]);
+}
+```
+
+### Rutas dinamicas
+
+Son aquellas que tienen una ruta que varia segun el valor de alguna variable dentro de la logica de mi aplicacion y que esta pueda ser usada por otras rutas, por ejemplo:
+
+```json
+  path: 'detalle/:id',
+  component: DetalleComponent
+```
+
+Dentro de la logica del componente asignado a la ruta dinamica, se puede acceder al valor dinamico por medio de un objeto de tipo `ActivatedRoute` y su propiedad `params`, lo cual permite "*suscribirse*" a la informacion dinamica (De tipo `Observable`) que tenga el parametro de la ruta, con el nombre que le hallamos dado:
+
+```typescript
+variable: number;
+
+ngOnInit(): void {
+  this.activatedRoute.params.suscribe(params => {
+    this.variable = params.id;
+  })
+}
+```
+
+### Children routes
+
+Nos permite añadir mas direcciones a rutas principales como por ejemplo acceder a informacion de una id dentro del detalle que establecimos anteriormente `/detalle/:id/hijo`. Dentro de nuestras rutas, podemos ver las rutas hijas con la propiedad `children`:
+
+```json
+  path: 'detalle/id',
+  component: DetalleComponent,
+  children: [
+    {path: 'hijo1', component: Hijo1Component},
+    {path: 'hijo2', component: Hijo2Component},
+  ]
+```
+
+Las rutas hijas dependen de que la ruta padre exista primero.
+
+El añadir rutas hijas tambien exije que el componente padre instancie un componente `<router-outlet>` en su archivo de HTML.
+
+Desde los componentes de las rutas hijas tambien se puede retornar el valor dinamico de la ruta general pero primero debemos acceder a la ruta padre, esto se hace de la siguiente manera:
+
+```typescript
+this.activatedRoute.parent.params.suscribe(params => console.log(params.id));
+```
+
+### Guards
+
+Permiten limitar el acceso a ciertas rutas, por ejemplo dar acceso a una aplicacion cuando un usuario se loggee.
+
+Por medio del CLI de Angular podemos crear un Guard:
+
+```cli
+ng generate guard Random
+```
+
+Al generar un Guard, el CLI nos preguntara que interface deseamos implementar, entre estas tenemos:
+
+- **CanActivate**
+
+El cual bloquea el navegar a una ruta en concreto
+
+- **CanActivateChild**
+
+Que bloquea el navegar hacia rutas hijas de otra
+
+- **CanDeactivate**
+
+Bloquea el navegar fuera de una ruta hacia otras
+
+- **CanLoad**
+
+Donde se bloquea la carga de componentes
+
+Los Guards son objetos que se puede inyectar en componentes o donde sea necesario usarlos y el concepto de estos es que a traves de la interface implementada se devuelva un valor *False* o *True* que permita determinar si se permite el ingreso o no a la ruta.
+
+Para llamar un Guard en alguna ruta, solo debemos añadirlo a la propiedad "canActivate" del objeto de la ruta, esta propiedad contiene un array de Guards que se valida en orden:
+
+```json
+  path: 'nombre ruta',
+  component: 'NombreComponente',
+  canActivate: [ guard1, guard2]
+```
+
+Los ejemplos de Routing se pueden ver en los componentes "DetalleProducto", "detalle/Fotos" y "detalle/Quejas".
