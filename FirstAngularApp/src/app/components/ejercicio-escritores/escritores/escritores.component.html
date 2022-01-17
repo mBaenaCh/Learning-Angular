@@ -1,0 +1,12 @@
+<select (change)="onChangeOptionSelected($event)">
+    <option selected value="">Seleccione una opcion </option>
+    <option *ngFor="let pais of paises">{{pais}}</option>
+</select>
+<div class="escritores">
+    <div class="escritor" *ngFor="let escritor of escritores" (click)=onClick(escritor.id)>
+        <h3>{{escritor.nombre}} {{escritor.apellidos}}</h3>
+        <img src={{escritor.imagen}}>
+        <p>{{escritor.pais}}</p>
+    </div>
+</div>
+

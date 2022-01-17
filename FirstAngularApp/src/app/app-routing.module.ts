@@ -8,9 +8,11 @@ import { DetalleProductoComponent } from './components/detalle-producto/detalle-
 import { QuejasComponent } from './components/detalle/quejas/quejas.component';
 import { FotosComponent } from './components/detalle/fotos/fotos.component';
 import { RandomGuard } from './random.guard';
+import { EscritoresComponent } from './components/ejercicio-escritores/escritores/escritores.component';
+import { DetalleEscritorComponent } from './components/ejercicio-escritores/detalle-escritor/detalle-escritor.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'info'},
+  {path: '', pathMatch: 'full', redirectTo: 'escritores'},
   {path: 'info', component: InfoComponent, canActivate:[RandomGuard]},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
     {path: 'quejas', component: QuejasComponent},
     {path: 'fotos', component: FotosComponent},
   ]},
+  {path: 'escritores', component: EscritoresComponent},
+  {path: 'escritores/:id', component: DetalleEscritorComponent},
   {path: '**', redirectTo: ''},
 ];
 

@@ -1,0 +1,16 @@
+<div class="escritor">
+    <!-- El objeto escritor, al ser una promesa, demora un poco mas en asignarse,
+         por lo que es normal que de primera mano el componente arroje un error de 
+         que el objeto esta indefinido, como solucion, podemos usar el operador "?"
+         de typescript para omitir ese error y que los valores no se asignen al objeto
+         y componente hasta que el promise halla sido asignado 
+        
+         Este operador se llama "optional" y permite escribir codigo typescript si nos 
+         encontramos con una expresion "nula" o "undefined"-->
+    <h3>{{escritor?.nombre}} {{escritor?.apellidos}}</h3>
+    <img src={{escritor?.imagen}}>
+    <p>{{escritor?.pais}}</p>
+</div>
+<button (click)="onClick()">Regresar</button>
+<router-outlet></router-outlet>
+

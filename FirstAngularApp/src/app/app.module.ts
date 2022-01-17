@@ -29,6 +29,8 @@ import { RouterModule } from '@angular/router';
 import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 import { QuejasComponent } from './components/detalle/quejas/quejas.component';
 import { FotosComponent } from './components/detalle/fotos/fotos.component';
+import { EscritoresComponent } from './components/ejercicio-escritores/escritores/escritores.component';
+import { DetalleEscritorComponent } from './components/ejercicio-escritores/detalle-escritor/detalle-escritor.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { FotosComponent } from './components/detalle/fotos/fotos.component';
     ContactComponent,
     DetalleProductoComponent,
     QuejasComponent,
-    FotosComponent
+    FotosComponent,
+    EscritoresComponent,
+    DetalleEscritorComponent
   ],
   imports: [
     BrowserModule,

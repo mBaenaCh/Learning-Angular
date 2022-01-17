@@ -1,0 +1,14 @@
+.escritores{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.escritor{
+    padding: 10px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
