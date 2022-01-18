@@ -31,6 +31,7 @@ import { QuejasComponent } from './components/detalle/quejas/quejas.component';
 import { FotosComponent } from './components/detalle/fotos/fotos.component';
 import { EscritoresComponent } from './components/ejercicio-escritores/escritores/escritores.component';
 import { DetalleEscritorComponent } from './components/ejercicio-escritores/detalle-escritor/detalle-escritor.component';
+import { LibrosEscritorComponent } from './components/ejercicio-escritores/libros-escritor/libros-escritor.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { DetalleEscritorComponent } from './components/ejercicio-escritores/deta
     QuejasComponent,
     FotosComponent,
     EscritoresComponent,
-    DetalleEscritorComponent
+    DetalleEscritorComponent,
+    LibrosEscritorComponent
   ],
   imports: [
     BrowserModule,

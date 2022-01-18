@@ -10,6 +10,7 @@ import { FotosComponent } from './components/detalle/fotos/fotos.component';
 import { RandomGuard } from './random.guard';
 import { EscritoresComponent } from './components/ejercicio-escritores/escritores/escritores.component';
 import { DetalleEscritorComponent } from './components/ejercicio-escritores/detalle-escritor/detalle-escritor.component';
+import { LibrosEscritorComponent } from './components/ejercicio-escritores/libros-escritor/libros-escritor.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'escritores'},
@@ -21,7 +22,9 @@ const routes: Routes = [
     {path: 'fotos', component: FotosComponent},
   ]},
   {path: 'escritores', component: EscritoresComponent},
-  {path: 'escritores/:id', component: DetalleEscritorComponent},
+  {path: 'escritores/:id', component: DetalleEscritorComponent, children:[
+    {path: 'libros', component: LibrosEscritorComponent}
+  ]},
   {path: '**', redirectTo: ''},
 ];
 

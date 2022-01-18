@@ -28,7 +28,11 @@ export class DetalleEscritorComponent implements OnInit {
     this.escritor = await this.escritoresService.getEscritorById(id);
   }
 
-  onClick(){
+  onClickRegresar(){
     this.router.navigate(['/']);
+  }
+
+  onClickLibros(){
+    this.router.navigate(['/escritores/'+this.idEscritor+'/libros']);
   }
 }
