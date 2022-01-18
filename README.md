@@ -1,36 +1,60 @@
-# Learning Angular:
+# Angular Forms
 
-- Framework importante para el desarrollo de aplicaciones de tipo **SPA** (Single Page Only).
+Son una herramienta fundamental para recuperar informacion del usuario.
 
-- Permite desarrollar aplicaciones **PWA**(Aplicaciones Web Progresivas), aplicaciones hibridas e incluso desarrollo nativo y de escritorio.
+Es ideal que los formularios controlen los cambios en los diferentes campos, como el haber clickeado en un campo pero no ingresar nada, el no seleccionar ninguno o el llenar un campo seleccionado, etc.
 
-- Puede ser la base para aplicaciones cross-platform, por lo que estas pueden funcionar en diferentes dispositivos.
+Asi mismo, estos deben validar los datos introducidos en los campos para recibir la informacion que se espera, de lo contrario se espera brindar instrucciones o advertencias que indiquen al usuario que se esta haciendo mal o que hace falta en la informacion que se esta ingresando.
 
-- Se basa en el patron de desarorollo MVC.
+## Tipos de formularios
 
-- Cuenta con un CLI para facilitar el trabajo e interaccion con nuestro proyecto de Angular.
+### Template
 
-## Algunos comandos del CLI de Angular:
+Formularios de tipo HTML que limitan el uso de validaciones.
 
-- Para instalar el CLI de angular usamos el comando:
+Su modulo de importacion es: `FormsModule`  y se usa ese tipo de formulario deberia importarse al archivo `app.module.ts`. Recordar que se añade a la propiedad `imports`.
 
-```
-$ npm install -g @angular/cli
-```
+Los formularios de tipo template guardan los valores ingresados en los inputs en una instancia de tipo `ngForm` y este proceso se realiza cuando se da un evento `ngSubmit`, al cual asociaremos un metodo dentro de nuestro archivo `.ts`. Para asociar los inputs al ngForm solo debemos incluir la directiva `ngModel` a cada input, en este caso tambien se recomienda incluir la propiedad `name` a cada input para identificar cada uno dentro del `ngForm`.
 
-Y podemos verificar su instalacion con `$ ng --version`
+Lo que nos deja con una estructura como esta:
 
-- Para crear un proyecto: 
-
-```
-$ ng new NombreProyecto
-```
-
-- Para correr el proyecto usamos el siguiente:
-
-```
-ng serve
+```html
+<form #variablePlantilla="ngForm" (ngSubmit)="onSubmit(variablePlantilla.value)">
+    <div>
+        <label></label>
+        <input type="text" name="input1" ngModel>
+    </div>
+    <input type="submit">
+</form>
 ```
 
-Este pondra a correr nuestro proyecto, en una etapa de desarrollo, en la direccion: *http://localhost:4200*
+Como tal, la variable de plantilla no la llevamos al archivo .ts, lo que llevamos son unos `formValues` que luego podremos usar a nuestro gusto en la logica de nuestro componente.
 
+```typescript
+onSubmit(formValues){}
+```
+
+### Model
+
+Son formularios que permiten generar una instancia (objeto) que puede asociarse a los campos del formulario y sobre el cual se pueden validaciones.
+
+## Ñapa (Instalar bootstrap)
+
+Instalar dependencia:
+
+```cli
+npm i bootstrap
+```
+
+Y para cargar los estilos de bootstrap:
+
+Añadir en el angular.json, en la propiedad `styles`, la ubicacion de los estilos de bootstrap, que se encuentran en `node_modules`:
+
+```json
+{
+    "styles": [
+        "node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "src/styles.css"
+    ]
+}
+```
