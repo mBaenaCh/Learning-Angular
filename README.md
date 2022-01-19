@@ -14,7 +14,7 @@ Formularios de tipo HTML que limitan el uso de validaciones.
 
 Su modulo de importacion es: `FormsModule`  y se usa ese tipo de formulario deberia importarse al archivo `app.module.ts`. Recordar que se añade a la propiedad `imports`.
 
-Los formularios de tipo template guardan los valores ingresados en los inputs en una instancia de tipo `ngForm` y este proceso se realiza cuando se da un evento `ngSubmit`, al cual asociaremos un metodo dentro de nuestro archivo `.ts`. Para asociar los inputs al ngForm solo debemos incluir la directiva `ngModel` a cada input, en este caso tambien se recomienda incluir la propiedad `name` a cada input para identificar cada uno dentro del `ngForm`.
+Los formularios de tipo template guardan los valores ingresados en los inputs en una instancia de tipo `ngForm` y este proceso se realiza cuando se da un evento `ngSubmit`, al cual asociaremos un metodo dentro de nuestro archivo .ts . Para asociar los inputs al ngForm solo debemos incluir la directiva `ngModel` a cada input, en este caso tambien se recomienda incluir la propiedad `name` a cada input para identificar cada uno dentro del `ngForm`.
 
 Lo que nos deja con una estructura como esta:
 
@@ -37,6 +37,30 @@ onSubmit(formValues){}
 ### Model
 
 Son formularios que permiten generar una instancia (objeto) que puede asociarse a los campos del formulario y sobre el cual se pueden validaciones.
+
+Su modulo de importacion tambien debemos añadirlo en nuestra propiedad `imports` de nuestro archivo `app.module.ts`, el modulo se llama: `ReactiveFormsModule`.
+
+Luego, en nuestro componente de formulario solo debemos añadir una propiedad de tipo `FormGroup` y esta cuando sea inicializada en el `constructor()` tendra cada uno los de los campos del formulario que esperamos recibir, estos seran de tipo `FormControl`:
+
+```typescript
+formulario: FormGroup;
+
+constructor(){
+    this.formulario = new FormGroup({
+        input1 = new FormControl(),
+        input2 = new FormControl(),
+    });
+}
+```
+
+A nivel de HTML nuestro componente se vera de esta manera, donde nuestro `form` cargar el `FormGroup` que definimos como propiedad. Asi mismo, se asociara un evento `ngSubmit` al formulario:
+
+```html
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <input formControlName="input1">
+    <input formControlName="input2">
+</form>
+```
 
 ## Ñapa (Instalar bootstrap)
 
