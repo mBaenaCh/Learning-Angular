@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-model',
@@ -9,17 +9,25 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ModelComponent implements OnInit {
 
   formulario: FormGroup;
-
+  
   constructor() { 
     this.formulario = new FormGroup({
-      nombre: new FormControl(),
-      apellidos: new FormControl(),
-      edad: new FormControl(),
-      identificacion: new FormControl(),
-      contraseña: new FormControl(),
-      repetirContraseña: new FormControl(),
-      correo: new FormControl(),
-    })
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      apellidos: new FormControl('', [
+        Validators.maxLength(10)
+      ]),
+      edad: new FormControl('', [
+        this.validarEdad
+      ]),
+      identificacion: new FormControl(''),
+      contraseña: new FormControl(''),
+      repetirContraseña: new FormControl(''),
+      correo: new FormControl(''),
+    });
+    
   }
 
   ngOnInit(): void {
@@ -27,6 +35,19 @@ export class ModelComponent implements OnInit {
 
   onSubmit(){
     console.log(this.formulario.value);
+  }
+
+  validarEdad(formControl: FormControl){
+    const valor = formControl.value;
+
+    const min = 18;
+    const max = 90;
+
+    if(valor < 18 && valor >= 90){
+      return null;
+    } else {
+      return { edadvalidator: {min, max}};
+    }
   }
 
 }

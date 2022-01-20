@@ -62,7 +62,53 @@ A nivel de HTML nuestro componente se vera de esta manera, donde nuestro `form` 
 </form>
 ```
 
-## Ñapa (Instalar bootstrap)
+### Validaciones con FormGroup
+
+Podran ser añadidas a cada `FormControl` de nuestro formulario por medio de un array de `Validators`. Estos sirven para controlar la informacion que esperamos recibir en cada uno de nuestro campos. (NOTA: El primer parametro de nuestro `FormControl` es un valor inicial de nuestro formulario):
+
+```typescript
+constructor(){
+    this.formulario = new FormGroup({
+        input1: new FormControl('', [Validators])
+    });
+}
+```
+
+### Validaciones personalizadas
+
+En general, son metodos que validan campos muy especificos de nuestra aplicacion. Si el campo es valido deberia retornar `null` y si no es valido deberia retornar algo que indique el error dentro del campo. El metodo de la validacion personalizada luego es llevado al array de `Validators` del `FormControl`.
+
+```typescript
+constructor(){
+    this.formulario = new FormGroup({
+        input1 = new FormControl(valorInicial, [
+            this.validacionPersonalizada;
+        ])
+    });
+}
+```
+
+## Ñapa #1: Algunas clases asociadas a los formularios
+
+Aquellas clases que describen cuando un elemento del formulario fue clickeado, cuando se escribio algo en este o no se ha interactuado con el mismo.
+
+- **ng-pristine:** Un elemento en su estado original.
+
+- **ng-dirty:** Un elemento sobre el cual si se ha escrito alguna informacion. Si un elemento pasa a `ng-dirty` ya no puede regresar a `ng-pristine`
+
+- **ng-untouched:** Es un elemento que no ha sido seleccionado en ningun momento, contrario a lo que pasa con `ng-touched`, donde el elemento fue seleccionado en algun momento, independiente de que se halla escrito (o no) en este.
+
+- **ng-valid:** Cuando se cumple el `Validator` especificado para el elemento, caso contrario seria `ng-invalid`. Esta clase se extiende al elemento `<form>`.
+
+Una forma de usar las clases en caso de que un campo que es seleccionado no es valido y que cuando se seleccione otro, este no halla sido corregido es considerando las clases `ng-touched` y `ng-invalid`.
+
+Estas clases de control pueden ser accedidas por medio del formulario con la propiedad `formulario.valid`, `formulario.touched`, etc. En caso de que necesitemos su valor para alguna validacion dentro del `.ts` o `html`.
+
+Los `FormControl` y sus valores de clase tambien pueden ser accedidos usando `formulario.controls.nombreFormControl.nombreClase` (`valid`, `touched`, etc).
+
+Otra manera de mostrar los errores de nuestros campos en HTML es con el uso de la propiedad `formulario.controls.nombreFormControl.errors`, el cual retorna los errores asociados a los `Validators` de nuestro campo (Por medio de su `FormControl`). Esta propiedad la podemos combinar con alguna de las clases ya combinadas para permitir o no la aparicion de un mensaje de error.
+
+## Ñapa #2: Instalar bootstrap
 
 Instalar dependencia:
 
